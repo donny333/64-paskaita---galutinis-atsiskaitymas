@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Logo from "../atoms/Logo";
 import SearchMain from "../molecules/SearchMain";
+import LoginButton from "../molecules/LoginButton";
 
 const StyledHeader = styled.header`
     background: rgb(27,27,30);
@@ -17,6 +18,7 @@ const Header = () => {
         <StyledHeader>
             <Logo />
             <SearchMain />
+            <LoginButton />
         </StyledHeader>
     );
 }
