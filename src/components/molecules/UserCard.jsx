@@ -18,11 +18,11 @@ const StyledDiv = styled.div`
 
 `;
 
-const UserCard = () => {
+const UserCard = ({user}) => {
     return ( 
         <StyledDiv>
-            <img src="https://media.discordapp.net/attachments/1101880155149967370/1102261659495563316/donny333_A_vibrant_and_energetic_photograph_of_your_father_perf_837f4e97-2d39-48c3-948d-e53fe47047b7.png?width=920&height=920" alt="avatar" />
-            <h3>userName</h3>
+            <img src={user.avatarURL} alt="avatar" />
+            <h3>{user.userName}</h3>
             <Rating />
         </StyledDiv>
     );

@@ -1,12 +1,38 @@
-import { createContext } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 const UsersContext = createContext();
 
+const UsersActionTypes = {
+    load: 'load_all_users',
+    add: 'add_new_user'
+}
+
+const reducer = (state, action) => {
+    switch(action.type){
+        case UsersActionTypes.load:
+            return action.data
+        default:
+            return state
+    }
+}
+
 const UsersProvider = ({ children }) => {
+    
+    const [users, setUsers] = useReducer(reducer, [])
+    
+    useEffect(()=>{
+        fetch('http://localhost:8080/users')
+            .then(res => res.json())
+            .then(data => setUsers({
+                type: UsersActionTypes.load,
+                data: data
+            }))
+    },[])
+    
     return ( 
         <UsersContext.Provider
             value={{
-
+                users
             }}
         >
             { children }
