@@ -1,4 +1,6 @@
 @import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
 :root{
     --bgMain: #1b1b1f;
@@ -14,4 +16,5 @@ body{
     background: rgb(36,37,41);
     background: linear-gradient(52deg, rgba(36,37,41,1) 0%, rgba(56,57,60,1) 49%, rgba(71,71,75,1) 100%);
     color: white;
+    font-family: 'Roboto', sans-serif;
 }

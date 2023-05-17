@@ -7,6 +7,7 @@ const StyledLogo = styled.div`
     > h1{
         margin: 0;
         letter-spacing: 3px;
+        font-weight: 400;
     }
     > svg{
         height: 2rem;
