@@ -66,6 +66,13 @@ const Register = () => {
                     />
                 </div>
                 <div>
+                    <label htmlFor="avatarUrl">Avatar URL: </label>
+                    <input type="email"
+                    name="avatarUrl" id="avatarUrl"
+
+                    />
+                </div>
+                <div>
                     <label htmlFor="password">Password: </label>
                     <input type="password"
                     name="password" id="password"
