@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SubscribeForm from "../molecules/SubscribeForm";
+import FollowUs from "../molecules/FollowUs";
 
 const StyledFooter = styled.footer`
     background: rgb(27,27,30);
@@ -14,8 +15,8 @@ const StyledFooter = styled.footer`
 const Footer = () => {
     return ( 
         <StyledFooter>
+            <FollowUs />
             <SubscribeForm />
-
         </StyledFooter>
      );
 }
