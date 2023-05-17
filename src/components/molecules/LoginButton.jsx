@@ -1,14 +1,15 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
-        > button {
+        a > button {
             height: 2rem;
             border: none;
             background-color: white;
             border-radius: var(--br);
             padding: 3px 20px;
         }
-        > button:hover {
+        a > button:hover {
             cursor: pointer;
         }
 `;
@@ -16,7 +17,9 @@ const StyledDiv = styled.div`
 const LoginButton = () => {
     return (  
         <StyledDiv>
-            <button>Login</button>
+            <Link to={'/login'}>
+                <button>Login</button>
+            </Link>
         </StyledDiv>
     );
 }

@@ -15,6 +15,7 @@ const StyledFooter = styled.footer`
 const Footer = () => {
     return ( 
         <StyledFooter>
+            <p>© 1990-{new Date().getFullYear()} by connect.com, Inc.</p>
             <FollowUs />
             <SubscribeForm />
         </StyledFooter>
