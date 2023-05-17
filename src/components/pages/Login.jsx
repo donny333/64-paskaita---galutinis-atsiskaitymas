@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px);
@@ -49,21 +50,45 @@ const StyledMain = styled.main`
 `;
 
 const Login = () => {
+    
+    const [values, setValues] = useState({
+        email:'',
+        password:''
+    })
+
+    const inputHandler = (e) => {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const submitHandler = e =>{
+        e.preventDefault();
+        console.log(values)
+    }
+    
     return ( 
         <StyledMain>
-            <form>
+            <form onSubmit={(e)=>submitHandler(e)}>
                 <div>
                     <label htmlFor="email">Email: </label>
                     <input type="email"
                     name="email" id="email"
-
+                    value={values.email}
+                    onChange={e => {
+                        inputHandler(e)
+                    }}
                     />
                 </div>
                 <div>
                     <label htmlFor="password">Password: </label>
                     <input type="password"
                     name="password" id="password"
-
+                    value={values.password}
+                    onChange={e => {
+                        inputHandler(e)
+                    }}
                     />
                 </div>
                 <button type="submit">Login</button>
