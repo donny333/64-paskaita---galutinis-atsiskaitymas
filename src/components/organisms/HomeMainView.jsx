@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PostInMain from "../molecules/PostInMain";
 
 const StyledSection = styled.section`
     > div:first-child {
@@ -20,7 +21,12 @@ const StyledSection = styled.section`
     > div:last-child{
         >h1{
             text-align: center;
+            margin: 0;
+            margin-top: 1rem;
         }
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 `;
 
@@ -33,6 +39,14 @@ const HomeMainView = () => {
             </div>
             <div>
                 <h1>All posts</h1>
+                <PostInMain />
+                <PostInMain />
+                <PostInMain />
+                <PostInMain />
+                <PostInMain />
+                <PostInMain />
+                <PostInMain />
+                <PostInMain />
 
             </div>
         </StyledSection>
