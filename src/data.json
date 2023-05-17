@@ -1,0 +1,41 @@
+{
+    "users":[
+        {
+            "id":1,
+            "userName": "stasiukas",
+            "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102262564911583273/donny333_A_striking_and_rebellious_photograph_of_your_father_ri_35c51b77-58f6-478a-bf43-52b55e02ced3.png",
+            "password": "stasiukas123!A",
+            "email": "stasiukas@gmail.com"
+        },{
+            "id":2,
+            "userName": "donny333",
+            "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1101952319916093511/donny333_Create_a_photo_portrait_of_a_Jedi_Sentinel_inspired_by_17823007-9eb3-43db-80d8-9a6ea75eff5b.png?width=920&height=920",
+            "password": "donny333!A",
+            "email": "donny333@gmail.com"
+        },{
+            "id":3,
+            "userName": "beauty",
+            "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1101922167752499351/donny333_green_frog_with_little_shoes_on_its_legs_d004bd3c-3cdb-4445-9043-b1e802e7ce02.png?width=920&height=920",
+            "password": "beauty123!A",
+            "email": "beauty@gmail.com"
+        },{
+            "id":4,
+            "userName": "warrior",
+            "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102101478526693376/donny333_Create_a_portrait_of_a_Jedi_Sentinel_inspired_by_the_p_023c7a6b-40f8-4c36-93aa-5447f82e0fc0.png?width=920&height=920",
+            "password": "warrior123!A",
+            "email": "warrior@gmail.com"
+        },{
+            "id":5,
+            "userName": "vyts",
+            "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102102263574581268/donny333_Generate_an_image_of_a_Jedi_Sentinel_that_bears_a_stro_31c14c65-4579-4bae-81d1-2394e0c7a3b6.png?width=920&height=920",
+            "password": "vyts123!A",
+            "email": "vyts@gmail.com"
+        },{
+            "id":6,
+            "userName": "sherminator",
+            "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102104367089328178/donny333_Generate_an_image_of_the_Terminator_holding_a_Winchest_3bc81ff5-7e3e-4f6f-bf9a-234c647640c6.png?width=920&height=920",
+            "password": "sherminator123!A",
+            "email": "sherminator@gmail.com"
+        }
+    ]
+}
