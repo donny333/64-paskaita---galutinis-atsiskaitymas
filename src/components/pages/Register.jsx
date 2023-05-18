@@ -119,7 +119,7 @@ const Register = () => {
                     existingUserName = true
                 }
             }
-            if(existingEmail == false && existingUserName == false){
+            if(existingEmail === false && existingUserName === false){
                 const newUser = {
                     ...values,
                     id: generateId()

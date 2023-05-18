@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import PostInMain from "../molecules/PostInMain";
+import { useContext } from "react";
+import QuestionsContext from "../../contexts/QuestionsContext";
+import UsersContext from "../../contexts/UsersContext";
 
 const StyledSection = styled.section`
     > div:first-child {
@@ -31,6 +34,13 @@ const StyledSection = styled.section`
 `;
 
 const HomeMainView = () => {
+
+    const { questions } = useContext(QuestionsContext)
+    const { users } = useContext(UsersContext)
+    
+    console.log(questions)
+
+
     return ( 
         <StyledSection>
             <div>
@@ -39,15 +49,19 @@ const HomeMainView = () => {
             </div>
             <div>
                 <h1>All posts</h1>
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-
+                {
+                    !questions ?
+                    <h1>LOADING</h1> :
+                    questions.map(question => {
+                        const usersPost = users.find(user => user.id === question.userId)
+                        return <PostInMain 
+                            key={question.id}
+                            question={question}
+                            user={usersPost}
+                        />
+                    }
+                    )
+                }
             </div>
         </StyledSection>
     );

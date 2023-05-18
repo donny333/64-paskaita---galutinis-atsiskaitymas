@@ -59,7 +59,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const {users, currentUser, setCurrentUser } = useContext(UsersContext);
+    const {users, setCurrentUser } = useContext(UsersContext);
 
     const [ wrongLogIn, setWrongLogin ] = useState(false)
     
