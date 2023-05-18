@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import UserCard from "../molecules/UserCard";
+import { useContext } from "react";
+import UsersContext from "../../contexts/UsersContext";
 
 const StyledSection = styled.section`
     background-color: var(--bgSide);
@@ -16,15 +18,23 @@ const StyledSection = styled.section`
 `;
 
 const UsersSideBar = () => {
+
+    const { users } = useContext(UsersContext)
+
     return ( 
         <StyledSection>
             <h2>Top Users!</h2>
             <div>
-                <UserCard />
-                <UserCard />
-                <UserCard />
-                <UserCard />
-                <UserCard />
+                {
+                    users.length === 0 ?
+                    <h1>Loading.</h1>:
+                    users.map(user =>
+                        <UserCard 
+                            key={user.id}
+                            user={user}
+                        />
+                    )
+                }
             </div>
         </StyledSection>
     );
