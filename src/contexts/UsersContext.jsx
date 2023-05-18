@@ -11,6 +11,15 @@ const reducer = (state, action) => {
     switch(action.type){
         case UsersActionTypes.load:
             return action.data
+        case UsersActionTypes.add:
+            fetch('http://localhost:8080/users', {
+                method: 'POST',
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify(action.data)
+            })
+            return [...state, action.data]
         default:
             return state
     }
@@ -34,8 +43,10 @@ const UsersProvider = ({ children }) => {
         <UsersContext.Provider
             value={{
                 users,
+                setUsers,
                 currentUser,
-                setCurrentUser
+                setCurrentUser,
+                UsersActionTypes
             }}
         >
             { children }

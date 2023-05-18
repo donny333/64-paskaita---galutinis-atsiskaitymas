@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
+import {v4 as generateId} from 'uuid'
+import { useContext } from "react";
+import UsersContext from "../../contexts/UsersContext";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px);
@@ -84,15 +89,50 @@ const usersSchema = Yup.object({
       .required('Input must be filled')
 });
 
-
-
 const Register = () => {
+    const navigate = useNavigate();
+    const { setCurrentUser, users, setUsers, UsersActionTypes} = useContext(UsersContext)
+    const [userNameExists, setUserNameExists] = useState(false)
+    const [emailExists, setEmailExists] = useState(false)
+
     const formik = useFormik({
         initialValues:values,
         validationSchema: usersSchema,
         onSubmit: (values) => {
-            console.log(values)
-        }    
+            setEmailExists(false)
+            setUserNameExists(false)
+            const existingUser = users.find(user => user.userName === values.userName || user.email === values.email);
+            if (existingUser){
+                if(existingUser.email === values.email){
+                    setEmailExists(true)
+                } else if(existingUser.userName === values.userName) {
+                    setUserNameExists(true)
+                }
+            }
+
+            let existingEmail = false
+            let existingUserName = false;
+            if (existingUser){
+                if(existingUser.email === values.email){
+                    existingEmail = true
+                } else if(existingUser.userName === values.userName){
+                    existingUserName = true
+                }
+            }
+            if(existingEmail == false && existingUserName == false){
+                const newUser = {
+                    ...values,
+                    id: generateId()
+                }
+                delete newUser.repeatPassword
+                setUsers({
+                    type: UsersActionTypes.add,
+                    data: newUser
+                })
+                setCurrentUser(newUser)
+                navigate('/')
+            }
+        }
     })
     return (
         <StyledMain>
@@ -163,12 +203,16 @@ const Register = () => {
                         <p>{formik.errors.repeatPassword}</p>
                     }
                 <button type="submit">Register</button>
+                {
+                    userNameExists && <p>This user name already exists.</p>
+                }
+                {
+                    emailExists && <p>User with this email already exists.</p>
+                }
             </form>
 
         </StyledMain>
     );
 }
-
-// vegeta123!A
  
 export default Register;
