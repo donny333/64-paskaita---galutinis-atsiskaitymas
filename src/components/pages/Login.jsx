@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import UsersContext from "../../contexts/UsersContext";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px);
@@ -35,6 +36,11 @@ const StyledMain = styled.main`
                 padding: 0px 10px;
             }
         }
+        > p {
+            color: red;
+            font-size: 1.25rem;
+            margin: 0;
+        }
         > button {
             height: 2rem;
             border: none;
@@ -50,6 +56,12 @@ const StyledMain = styled.main`
 `;
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    const {users, setCurrentUser } = useContext(UsersContext);
+
+    const [ wrongLogIn, setWrongLogin ] = useState(false)
     
     const [values, setValues] = useState({
         email:'',
@@ -65,7 +77,16 @@ const Login = () => {
 
     const submitHandler = e =>{
         e.preventDefault();
-        console.log(values)
+        const logingUser = users.find((user)=>
+            user.email === values.email && user.password === values.password
+        )
+        if(!logingUser){
+            setWrongLogin(true);
+        } else {
+            setCurrentUser(logingUser);
+            setWrongLogin(false);
+            navigate('/')
+        }
     }
     
     return ( 
@@ -92,6 +113,9 @@ const Login = () => {
                     />
                 </div>
                 <button type="submit">Login</button>
+                {
+                    wrongLogIn && <p>Wrong login data!</p>
+                }
             </form>
             <p>If you dont have an account, click <Link to={'/register'}>here</Link> to register.</p>
         </StyledMain>
