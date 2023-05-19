@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -9,6 +9,7 @@ import DeleteForeverSharpIcon from '@mui/icons-material/DeleteForeverSharp';
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
+import QuestionsContext from "../../contexts/QuestionsContext";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px - 4rem);
@@ -58,22 +59,34 @@ const StyledDiv = styled.div`
                     font-size: 2rem;
                 }
         }
+        svg:hover {
+            cursor: pointer;
+        }
     }
 `;
 
 const Question = () => {
 
-    const { currentUser }  = useContext(UsersContext)
-
+    const { currentUser }  = useContext(UsersContext);
+    const { questionsActionTypes,setQuestions } = useContext(QuestionsContext);
     const { id } = useParams();
-
-    const [question, setQuestion] = useState([])
+    const [question, setQuestion] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetch(`http://localhost:8080/questions/${ id }`)
             .then(res => res.json())
             .then(data => setQuestion(data))
     },[])
+
+    const deleteQuestion = () => {
+        setQuestions({
+            type: questionsActionTypes.delete,
+            id: question.id
+        })
+        console.log(`http://localhost:8080/questions/${question.id}`)
+        navigate('/')
+    }
     
     return ( 
         <StyledMain>
@@ -92,7 +105,10 @@ const Question = () => {
                                 <Link to={`/${question.id}/edit`}>
                                     <EditSharpIcon />
                                 </Link>
-                                    <DeleteForeverSharpIcon className="deleteIcon"/>
+                                    <DeleteForeverSharpIcon 
+                                        className="deleteIcon"
+                                        onClick={()=>{deleteQuestion()}}
+                                    />
                             </> :
                             <span className="ivisible"></span>
                         }
