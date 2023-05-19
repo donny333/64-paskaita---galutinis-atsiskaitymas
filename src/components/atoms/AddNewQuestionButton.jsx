@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
 
 const AddNewQuestionButton = () => {
 
-    const { currentUser, setCurrentUser } = useContext(UsersContext);
+    const { currentUser } = useContext(UsersContext);
 
     return (  
         <StyledDiv>

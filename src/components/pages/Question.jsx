@@ -74,7 +74,7 @@ const Question = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch(`http://localhost:8080/questions/${ id }`)
+        fetch(`http://localhost:8080/questions/${id}`)
             .then(res => res.json())
             .then(data => setQuestion(data))
     },[])

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import QuestionBlock from "../molecules/QuestionBlock";
 import { useFormik } from "formik";
 import * as Yup from 'yup'
 import { useContext } from "react";
@@ -150,7 +149,7 @@ const QuestionEdit = () => {
         initialValues: values,
         onSubmit: (values) =>{
             if(tagSelected){
-                const submitDate = new Date;
+                const submitDate = new Date();
                 values.editDate = submitDate;
                 setQuestions({
                     type: questionsActionTypes.edit,

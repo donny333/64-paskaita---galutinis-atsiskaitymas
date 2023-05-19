@@ -1,8 +1,4 @@
 import styled from "styled-components";
-import EditSharpIcon from '@mui/icons-material/EditSharp';
-import DeleteForeverSharpIcon from '@mui/icons-material/DeleteForeverSharp';
-import { useContext } from "react";
-import UsersContext from "../../contexts/UsersContext";
 import { Link } from "react-router-dom";
 import EditIcons from "./EditIcons";
 
@@ -47,8 +43,6 @@ const StyledDiv = styled.div`
 `;
 
 const PostInMain = ({question, user}) => {
-
-    const { currentUser } = useContext(UsersContext);
 
     return ( 
         <StyledDiv>
