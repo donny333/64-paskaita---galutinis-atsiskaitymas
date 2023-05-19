@@ -2,6 +2,7 @@ import styled from "styled-components";
 import EditSharpIcon from '@mui/icons-material/EditSharp';
 import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
+import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
     padding: 10px;
@@ -28,9 +29,14 @@ const StyledDiv = styled.div`
                 border-radius: var(--br);
             }
         }
-        > h3{
-            margin: 5px 0;
-        }
+        a {
+            margin: 0;
+            text-decoration: none;
+            color: var(--links);
+            > h3{
+                margin: 5px 0;
+            }
+        } 
         > p{
             margin: 5px 0;
             text-align: justify;
@@ -54,9 +60,11 @@ const PostInMain = ({question, user}) => {
                     }
                     <p>{question.tag}</p>
                 </div>
-                <h3>
-                    {question.title}
-                </h3>
+                <Link to={`/${question.id}`}>
+                    <h3>
+                        {question.title}
+                    </h3>
+                </Link>
                 <p>
                 {question.description}
                 </p>
