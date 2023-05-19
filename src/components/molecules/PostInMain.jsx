@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import EditSharpIcon from '@mui/icons-material/EditSharp';
+import DeleteForeverSharpIcon from '@mui/icons-material/DeleteForeverSharp';
 import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import { Link } from "react-router-dom";
+import EditIcons from "./EditIcons";
 
 const StyledDiv = styled.div`
     padding: 10px;
@@ -53,11 +55,10 @@ const PostInMain = ({question, user}) => {
             <img src={user.avatarURL} alt="" />
             <div>
                 <div>
-                    {   
-                        currentUser && currentUser.id === user.id? 
-                        <EditSharpIcon /> :
-                        <span className="ivisible"></span>
-                    }
+                    <EditIcons 
+                        user={user}
+                        question={question}
+                    />
                     <p>{question.tag}</p>
                 </div>
                 <Link to={`/${question.id}`}>

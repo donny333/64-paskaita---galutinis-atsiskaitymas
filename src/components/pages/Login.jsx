@@ -48,6 +48,9 @@ const StyledMain = styled.main`
             border-radius: var(--br);
             padding: 3px 10px;
         }
+        > button:hover {
+            cursor: pointer;
+        }
     }
     a {
         text-decoration: none;
