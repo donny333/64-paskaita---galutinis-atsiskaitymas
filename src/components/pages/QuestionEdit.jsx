@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from 'yup'
 import { useContext } from "react";
 import QuestionsContext from "../../contexts/QuestionsContext";
+import UsersContext from "../../contexts/UsersContext";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px - 4rem);
@@ -40,6 +41,26 @@ const StyledMain = styled.main`
         > div:first-child > textarea{
             width: 600px;
             height: 6rem;
+        }
+        > div:last-of-type {
+            width: 755px;
+            background-color: white;
+            padding: 5px 0;
+            border-radius: var(--br);
+            display: flex;
+            justify-content: space-between;
+            > div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 10px;
+                > input {
+                    width: 50px;
+                }
+                > label {
+                    color: black;
+                }
+            }
         }
         > button {
             height: 2rem;
@@ -93,12 +114,13 @@ const StyledDiv = styled.div`
 const QuestionEdit = () => {
 
     const { id } = useParams();
+    const [question, setQuestion] = useState([]);
+    const { setQuestions, questionsActionTypes} = useContext(QuestionsContext);
+    const navigate = useNavigate();
+    const [tagSelected, setTagSelected] = useState(true);
+    const { currentUser } = useContext(UsersContext);
 
-    const [question, setQuestion] = useState([])
-
-    const { setQuestions, questionsActionTypes} = useContext(QuestionsContext)
-
-    const navigate = useNavigate()
+    !currentUser && navigate('/')
 
     useEffect(()=>{
         fetch(`http://localhost:8080/questions/${ id }`)
@@ -119,21 +141,27 @@ const QuestionEdit = () => {
     
     const values = {
         description:'',
-        text:''
+        text:'',
+        tag:''
     }
 
     const formik = useFormik({
         validationSchema: questionSchema,
         initialValues: values,
         onSubmit: (values) =>{
-            const submitDate = new Date;
-            values.editDate = submitDate;
-            setQuestions({
-                type: questionsActionTypes.edit,
-                data:values,
-                id:question.id
-            })
-            navigate('/')
+            if(tagSelected){
+                const submitDate = new Date;
+                values.editDate = submitDate;
+                setQuestions({
+                    type: questionsActionTypes.edit,
+                    data:values,
+                    id:question.id,
+                })
+                navigate('/')
+                setTagSelected(true)
+            } else {
+                setTagSelected(false)
+            }
         }
     })    
 
@@ -176,6 +204,35 @@ const QuestionEdit = () => {
                             formik.touched.text && formik.errors.text &&
                             <p>{formik.errors.text}</p>
                         }
+                <div>
+                    <div>
+                        <label htmlFor="science">Science</label>
+                        <input type="radio" id="science" name="tag" value="science"
+                        onClick={formik.handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="technology">Technology</label>
+                        <input type="radio" id="technology" name="tag" value="technology"
+                        onClick={formik.handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="travel">Travel</label>
+                        <input type="radio" id="travel" name="tag" value="travel"
+                        onClick={formik.handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="books">Books</label>
+                        <input type="radio" id="books" name="tag" value="books"
+                        onClick={formik.handleChange}
+                        />
+                    </div>
+                </div>
+                    {
+                        !tagSelected && <p>Please select category for question.</p>
+                    }
                 <button type="submit">Submit</button>
             </form>
         </StyledMain>

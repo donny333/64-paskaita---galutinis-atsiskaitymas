@@ -22,7 +22,8 @@ const reducer = (state, action) =>{
                 body: JSON.stringify({
                     text:action.data.text,
                     description:action.data.description,
-                    editDate:action.data.editDate
+                    editDate:action.data.editDate,
+                    tag:action.data.tag
                 })
             })            
             return state.map(question =>{
@@ -30,7 +31,8 @@ const reducer = (state, action) =>{
                     return {...question, 
                         text:action.data.text,
                         description:action.data.description,
-                        editDate:action.data.editDate
+                        editDate:action.data.editDate,
+                        tag:action.data.tag
                     }
                 } else {
                     return question

@@ -59,10 +59,23 @@ const StyledMain = styled.main`
             height: 4rem;
         }
         > div:last-of-type {
-            width: 755px;
+            width: calc(755px - 20px);
             background-color: white;
             padding: 5px 0;
             border-radius: var(--br);
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            > div {
+                display: flex;
+                gap: 10px;
+                > input {
+                    width: 25px;
+                }
+                > label {
+                    color: black;
+                }
+            }
         }
         > button {
             height: 2rem;
@@ -178,22 +191,30 @@ const QuestionAdd = () => {
                         <p>{formik.errors.text}</p>
                     }
                 <div>
-                    <label htmlFor="science">Science</label>
-                    <input type="radio" id="science" name="tag" value="science"
-                    onClick={formik.handleChange}
-                    />
-                    <label htmlFor="technology">Technology</label>
-                    <input type="radio" id="technology" name="tag" value="technology"
-                    onClick={formik.handleChange}
-                    />
-                    <label htmlFor="travel">Travel</label>
-                    <input type="radio" id="travel" name="tag" value="travel"
-                    onClick={formik.handleChange}
-                    />
-                    <label htmlFor="books">Books</label>
-                    <input type="radio" id="books" name="tag" value="books"
-                    onClick={formik.handleChange}
-                    />
+                    <div>                        
+                        <label htmlFor="science">Science</label>
+                        <input type="radio" id="science" name="tag" value="science"
+                        onClick={formik.handleChange}
+                        />
+                    </div>
+                    <div>                        
+                        <label htmlFor="technology">Technology</label>
+                        <input type="radio" id="technology" name="tag" value="technology"
+                        onClick={formik.handleChange}
+                        />
+                    </div>
+                    <div>                        
+                        <label htmlFor="travel">Travel</label>
+                        <input type="radio" id="travel" name="tag" value="travel"
+                        onClick={formik.handleChange}
+                        />
+                    </div>
+                    <div>                        
+                        <label htmlFor="books">Books</label>
+                        <input type="radio" id="books" name="tag" value="books"
+                        onClick={formik.handleChange}
+                        />
+                    </div>
                 </div>
                     {
                         !tagSelected && <p>Please select category for question.</p>
