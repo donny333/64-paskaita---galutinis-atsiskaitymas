@@ -84,7 +84,6 @@ const Question = () => {
             type: questionsActionTypes.delete,
             id: question.id
         })
-        console.log(`http://localhost:8080/questions/${question.id}`)
         navigate('/')
     }
     
