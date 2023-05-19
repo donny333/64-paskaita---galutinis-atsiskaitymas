@@ -5,7 +5,8 @@ const QuestionsContext = createContext()
 const questionsActionTypes = {
     load: 'load_all_questions',
     add: 'add_new_question',
-    edit: 'edit_question'
+    edit: 'edit_question',
+    delete: 'delete_question'
 }
 
 const reducer = (state, action) =>{

@@ -6,6 +6,7 @@ import UsersContext from "../../contexts/UsersContext";
 import { v4 as generateId } from 'uuid'
 import QuestionsContext from "../../contexts/QuestionsContext";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px - 4rem);
@@ -57,6 +58,12 @@ const StyledMain = styled.main`
             width: 600px;
             height: 4rem;
         }
+        > div:last-of-type {
+            width: 755px;
+            background-color: white;
+            padding: 5px 0;
+            border-radius: var(--br);
+        }
         > button {
             height: 2rem;
             border: none;
@@ -79,6 +86,7 @@ const QuestionAdd = () => {
     const { currentUser } = useContext(UsersContext)
     const {setQuestions, questionsActionTypes} = useContext(QuestionsContext)
     const navigate = useNavigate();
+    const [tagSelected, setTagSelected] = useState(true)
 
     !currentUser && navigate('/')
 
@@ -100,23 +108,29 @@ const QuestionAdd = () => {
     const values = {
         title:'',
         description:'',
-        text:''
+        text:'',
+        tag:''
     }
 
     const formik = useFormik({
         initialValues: values,
         validationSchema: questionSchema,
         onSubmit: (values) => {
-            const newQuestion = {
-                ...values,
-                userId: currentUser.id,
-                id: generateId()
+            if(values.tag){
+                const newQuestion = {
+                    ...values,
+                    userId: currentUser.id,
+                    id: generateId()
+                }
+                setQuestions({
+                    type: questionsActionTypes.add,
+                    data: newQuestion
+                })
+                setTagSelected(true)
+                navigate('/')
+            } else {
+                setTagSelected(false)
             }
-            setQuestions({
-                type: questionsActionTypes.add,
-                data: newQuestion
-            })
-            navigate('/')
         }
     })
 
@@ -157,12 +171,33 @@ const QuestionAdd = () => {
                         value={formik.values.text}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        />
+                    />
                 </div>
-                        {
-                            formik.touched.text && formik.errors.text &&
-                            <p>{formik.errors.text}</p>
-                        }
+                    {
+                        formik.touched.text && formik.errors.text &&
+                        <p>{formik.errors.text}</p>
+                    }
+                <div>
+                    <label htmlFor="science">Science</label>
+                    <input type="radio" id="science" name="tag" value="science"
+                    onClick={formik.handleChange}
+                    />
+                    <label htmlFor="technology">Technology</label>
+                    <input type="radio" id="technology" name="tag" value="technology"
+                    onClick={formik.handleChange}
+                    />
+                    <label htmlFor="travel">Travel</label>
+                    <input type="radio" id="travel" name="tag" value="travel"
+                    onClick={formik.handleChange}
+                    />
+                    <label htmlFor="books">Books</label>
+                    <input type="radio" id="books" name="tag" value="books"
+                    onClick={formik.handleChange}
+                    />
+                </div>
+                    {
+                        !tagSelected && <p>Please select category for question.</p>
+                    }
                 <button type="submit">Submit</button>
             </form>
         </StyledMain>
