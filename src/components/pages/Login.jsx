@@ -48,6 +48,9 @@ const StyledMain = styled.main`
             border-radius: var(--br);
             padding: 3px 10px;
         }
+        > button:hover {
+            cursor: pointer;
+        }
     }
     a {
         text-decoration: none;
@@ -59,7 +62,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const {users, currentUser, setCurrentUser } = useContext(UsersContext);
+    const {users, setCurrentUser } = useContext(UsersContext);
 
     const [ wrongLogIn, setWrongLogin ] = useState(false)
     

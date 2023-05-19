@@ -1,41 +1,69 @@
 import styled from "styled-components";
-import EditSharpIcon from '@mui/icons-material/EditSharp';
+import { Link } from "react-router-dom";
+import EditIcons from "./EditIcons";
 
 const StyledDiv = styled.div`
     padding: 10px;
     background-color: var(--bgInputs);
     border-radius: var(--br);
-    > div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        > h3 {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    > img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: var(--br);
+    }
+    > div{
+        > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            > p {
+                margin: 0;
+                border: 1px solid white;
+                padding: 5px 10px;
+                border-radius: var(--br);
+            }
+        }
+        a {
             margin: 0;
+            text-decoration: none;
+            color: var(--links);
+            > h3{
+                margin: 5px 0;
+            }
+        } 
+        > p{
+            margin: 5px 0;
+            text-align: justify;
         }
     }
-    > h3{
-        margin: 5px 0;
-    }
-    > p{
-        margin: 5px 0;
-        text-align: justify;
-    }
-
 `;
 
-const PostInMain = () => {
+const PostInMain = ({question, user}) => {
+
     return ( 
         <StyledDiv>
+            <img src={user.avatarURL} alt="" />
             <div>
-                <h3>UserName</h3>
-                <EditSharpIcon />
+                <div>
+                    <EditIcons 
+                        user={user}
+                        question={question}
+                    />
+                    <p>{question.tag}</p>
+                </div>
+                <Link to={`/${question.id}`}>
+                    <h3>
+                        {question.title}
+                    </h3>
+                </Link>
+                <p>
+                {question.description}
+                </p>
             </div>
-            <h3>
-                Lorem ipsum dolor sit amet.
-            </h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae in cum distinctio eaque, dolorem possimus fugiat ab ea quisquam incidunt?
-            </p>
         </StyledDiv>
     );
 }

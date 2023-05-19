@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import PostInMain from "../molecules/PostInMain";
+import { useContext } from "react";
+import QuestionsContext from "../../contexts/QuestionsContext";
+import UsersContext from "../../contexts/UsersContext";
 
 const StyledSection = styled.section`
     > div:first-child {
@@ -31,6 +34,10 @@ const StyledSection = styled.section`
 `;
 
 const HomeMainView = () => {
+
+    const { questions } = useContext(QuestionsContext)
+    const { users } = useContext(UsersContext)
+    
     return ( 
         <StyledSection>
             <div>
@@ -38,16 +45,20 @@ const HomeMainView = () => {
                 <img src="https://media.discordapp.net/attachments/1101880155149967370/1108033219019939940/donny333_an_abstract_image_that_represents_connections_or_netwo_1e71d5cb-52cc-41b8-9d4a-ae79100a3420.png?width=1509&height=566" alt="molecules connecting together" />
             </div>
             <div>
-                <h1>All posts</h1>
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-                <PostInMain />
-
+                <h1>All questions</h1>
+                {
+                    !questions ?
+                    <h1>LOADING</h1> :
+                    questions.map(question => {
+                        const usersPost = users.find(user => user.id === question.userId)
+                        return <PostInMain 
+                            key={question.id}
+                            question={question}
+                            user={usersPost}
+                        />
+                    }
+                    )
+                }
             </div>
         </StyledSection>
     );
