@@ -1,4 +1,9 @@
+import { useContext, useState } from "react";
 import styled from "styled-components";
+import {v4 as generateID} from 'uuid'
+import AnswersContext from "../../contexts/AnswersContex";
+import { useNavigate } from "react-router-dom";
+
 
 const StyledDiv = styled.div`
     > form {
@@ -23,11 +28,43 @@ const StyledDiv = styled.div`
     }
 `;
 
-const Answer = () => {
+const Answer = ({ userId, questionID }) => {
+
+    const navigate = useNavigate();
+
+    const { setAnswers, answersActionTypes } = useContext(AnswersContext);
+
+    const [values, setValues] = useState({
+        answer:''
+    })
+    
+    const inputHandler = e => {
+        setValues({answer:e.target.value})
+    }
+    
+    const submitHandle = e => {
+        e.preventDefault();
+        const newAnswer = {
+            ...values,
+            userId:userId,
+            questionID:questionID,
+            id:generateID()
+        }
+        setAnswers({
+            type:answersActionTypes.add,
+            data: newAnswer
+        })
+        setValues({answer:''})
+    }
+
     return ( 
         <StyledDiv>
-            <form>
-                <textarea name="answer" id="answer"></textarea>
+            <form onSubmit={e => submitHandle(e)}>
+                <textarea 
+                name="answer" id="answer"
+                value={values.answer}
+                onChange={(e)=>inputHandler(e)}
+                />
                 <button type="submit">Answer</button>
             </form>
         </StyledDiv>

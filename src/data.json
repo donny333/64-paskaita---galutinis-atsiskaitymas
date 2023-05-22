@@ -133,5 +133,85 @@
       "text": "How has the emergence of sustainable travel practices influenced the tourism industry, and what are the potential long-term implications for environmental conservation, cultural preservation, and economic development in popular travel destinations worldwide?",
       "editDate": "2023-05-19T07:21:37.646Z"
     }
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "questionID": 80,
+      "userId": 3,
+      "answer": "Very good answer 1"
+    },
+    {
+      "id": 2,
+      "questionID": 80,
+      "userId": 4,
+      "answer": "Very good answer 2"
+    },
+    {
+      "id": 3,
+      "questionID": 80,
+      "userId": 6,
+      "answer": "Very good answer 3"
+    },
+    {
+      "id": 4,
+      "questionID": 80,
+      "userId": 5,
+      "answer": "Very good answer 4"
+    },
+    {
+      "answer": "I think it is true.",
+      "userId": 3,
+      "questionID": 20,
+      "id": "be28a005-1c3d-4e0c-8a4d-d03a2d695b4b"
+    },
+    {
+      "answer": "Or maybe not.",
+      "userId": 3,
+      "questionID": 20,
+      "id": "837d763f-30bc-45e2-9f10-0f6e94d69d4f"
+    },
+    {
+      "answer": "Or maybe not.",
+      "userId": 3,
+      "questionID": 20,
+      "id": "6bfa23f4-d58b-4c28-b82d-a8721eb3ebdc"
+    },
+    {
+      "answer": "Or maybe not.",
+      "userId": 3,
+      "questionID": 20,
+      "id": "155345c6-c964-443f-aa6e-c2a8a5efc5cf"
+    },
+    {
+      "answer": "Or it'is true.",
+      "userId": 3,
+      "questionID": 20,
+      "id": "61e983e0-ad99-459c-97b4-42635b8926e5"
+    },
+    {
+      "answer": "Hello, there.",
+      "userId": 3,
+      "questionID": 80,
+      "id": "35d8a5eb-dfaf-47dd-a454-fa0a6bec7b41"
+    },
+    {
+      "answer": "I think it is really really true.",
+      "userId": 3,
+      "questionID": 20,
+      "id": "95289aa8-b817-4da9-9990-c91f5741755d"
+    },
+    {
+      "answer": "I think it is really really true.",
+      "userId": 3,
+      "questionID": 20,
+      "id": "aa2eee85-19b1-47e4-bf68-576078784b0c"
+    },
+    {
+      "answer": "I think it is really really true.",
+      "userId": 3,
+      "questionID": 20,
+      "id": "fa1b74aa-91c7-4b88-8709-9d36e8f974a4"
+    }
   ]
 }
