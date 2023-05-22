@@ -11,6 +11,8 @@ import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import QuestionsContext from "../../contexts/QuestionsContext";
 import Answer from "../organisms/Answer";
+import AnswersContext from "../../contexts/AnswersContex";
+import AnswerText from "../molecules/AnswerText";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px - 4rem);
@@ -22,16 +24,6 @@ const StyledMain = styled.main`
     section {
         display: flex;
         gap: 2rem;
-        > div:first-child{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: start;
-            > p {
-                margin: 5px;
-                font-size: 1.5rem;
-            }
-        }
     }
 `;
 
@@ -70,10 +62,22 @@ const StyledDiv = styled.div`
     }
 `;
 
+const StyledThumbs = styled.div`
+              display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            > p {
+                margin: 5px;
+                font-size: 1.5rem;
+            }  
+`;
+
 const Question = () => {
 
     const { currentUser }  = useContext(UsersContext);
-    const { questionsActionTypes,setQuestions } = useContext(QuestionsContext);
+    const { questionsActionTypes, setQuestions } = useContext(QuestionsContext);
+    const { answers } = useContext(AnswersContext)
     const { id } = useParams();
     const [question, setQuestion] = useState([]);
     const navigate = useNavigate();
@@ -95,11 +99,11 @@ const Question = () => {
     return ( 
         <StyledMain>
             <section>
-                <div>
+                <StyledThumbs>
                     <ThumbUpIcon />
                     <p>0</p>
                     <ThumbDownIcon />
-                </div>
+                </StyledThumbs>
                 <StyledDiv>
                     <div>
                         <div>
@@ -128,7 +132,22 @@ const Question = () => {
                 </StyledDiv>
             </section>
             {
-                currentUser && <Answer />
+                answers &&
+                answers.map(answer => {
+                    if(answer.questionID === question.id){
+                        return <AnswerText
+                            key={answer.id}
+                            answer={answer}                           
+                        />
+                    }
+                })
+            }
+            {
+                currentUser && 
+                <Answer 
+                userId = {currentUser.id}
+                questionID = {question.id}
+                />
             }
 
         </StyledMain>
