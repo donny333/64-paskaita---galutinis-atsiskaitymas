@@ -10,24 +10,29 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import QuestionsContext from "../../contexts/QuestionsContext";
+import Answer from "../organisms/Answer";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px - 4rem);
     padding: 2rem;
-    display: grid;
-    grid-template-columns: 100px 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
-    > div:first-child{
+    section {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: start;
-        > p {
-            margin: 5px;
-            font-size: 1.5rem;
+        gap: 2rem;
+        > div:first-child{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            > p {
+                margin: 5px;
+                font-size: 1.5rem;
+            }
         }
     }
-    
 `;
 
 const StyledDiv = styled.div`
@@ -89,37 +94,42 @@ const Question = () => {
     
     return ( 
         <StyledMain>
-            <div>
-                <ThumbUpIcon />
-                <p>0</p>
-                <ThumbDownIcon />
-            </div>
-            <StyledDiv>
+            <section>
                 <div>
-                    <div>
-                        <h1>{question.title}</h1>
-                        {   
-                            currentUser && currentUser.id === question.userId?
-                            <>
-                                <Link to={`/${question.id}/edit`}>
-                                    <EditSharpIcon />
-                                </Link>
-                                    <DeleteForeverSharpIcon 
-                                        className="deleteIcon"
-                                        onClick={()=>{deleteQuestion()}}
-                                    />
-                            </> :
-                            <span className="ivisible"></span>
-                        }
-                    </div>
-                    <p>{question.tag}</p>
+                    <ThumbUpIcon />
+                    <p>0</p>
+                    <ThumbDownIcon />
                 </div>
-                <h2>{question.description}</h2>
-                <p>{question.text}</p>
-                {   
-                    question.editDate && <p style={{color:'red', fontWeight:'bold'}}>{`Last edited: ${question.editDate.slice(0, 10)}`}</p>
-                }
-            </StyledDiv>
+                <StyledDiv>
+                    <div>
+                        <div>
+                            <h1>{question.title}</h1>
+                            {   
+                                currentUser && currentUser.id === question.userId?
+                                <>
+                                    <Link to={`/${question.id}/edit`}>
+                                        <EditSharpIcon />
+                                    </Link>
+                                        <DeleteForeverSharpIcon 
+                                            className="deleteIcon"
+                                            onClick={()=>{deleteQuestion()}}
+                                        />
+                                </> :
+                                <span className="ivisible"></span>
+                            }
+                        </div>
+                        <p>{question.tag}</p>
+                    </div>
+                    <h2>{question.description}</h2>
+                    <p>{question.text}</p>
+                    {   
+                        question.editDate && <p style={{color:'red', fontWeight:'bold'}}>{`Last edited: ${question.editDate.slice(0, 10)}`}</p>
+                    }
+                </StyledDiv>
+            </section>
+            {
+                currentUser && <Answer />
+            }
 
         </StyledMain>
     );
