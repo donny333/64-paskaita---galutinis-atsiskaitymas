@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import UsersContext from "../../contexts/UsersContext";
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
@@ -6,6 +6,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import EditSharpIcon from '@mui/icons-material/EditSharp';
 import DeleteForeverSharpIcon from '@mui/icons-material/DeleteForeverSharp';
 import AnswersContext from "../../contexts/AnswersContex";
+import AnswerCorrection from "./AnswerCorrection";
 
 const StyledDiv = styled.div`
     display: flex;
@@ -46,18 +47,23 @@ const StyledThumbs = styled.div`
             }  
 `;
 
-const deleteAnswer = () => {
-
-}
 
 const AnswerText = ({answer}) => {
-
+    
     const { users, currentUser } = useContext(UsersContext);
-    const { setAnswers, answersActionTypes } = useContext(AnswersContext)
-
+    const { setAnswers, answersActionTypes } = useContext(AnswersContext);
+    const [ correctionNeeded, setCorrectionNeeded ] = useState(false)
+    
     const userWhoAnswered = users.find(user => 
         user.id === answer.userId
     );
+        
+    const deleteAnswer = () => {
+        setAnswers(({
+            type:answersActionTypes.delete,
+            data: answer.id
+        }))
+    }
     
     return (  
         <StyledDiv>
@@ -67,17 +73,27 @@ const AnswerText = ({answer}) => {
                     {   
                         currentUser && currentUser.id === answer.userId?
                         <>
-                            <EditSharpIcon />
+                            <EditSharpIcon onClick={() => setCorrectionNeeded(true)}/>
                             <DeleteForeverSharpIcon 
                                 className="deleteIcon"
                                 onClick={()=>{deleteAnswer()}}
                             />
                         </> :
-                        <span className="ivisible"></span>
+                        <span className="ivisible">{userWhoAnswered.userName}</span>
                     }
                 </div>
             </div>
-            <p>{answer.answer}</p>
+            {
+                correctionNeeded ?
+                <AnswerCorrection 
+                setCorrectionNeeded={setCorrectionNeeded}
+                answerId = {answer.id}
+                setAnswers = {setAnswers}
+                answersActionTypes = {answersActionTypes}
+                /> :
+                <p>{answer.answer}</p>
+            }
+
             <StyledThumbs>
                 <ThumbUpIcon />
                 <p>0</p>
