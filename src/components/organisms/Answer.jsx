@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import styled from "styled-components";
 import {v4 as generateID} from 'uuid'
 import AnswersContext from "../../contexts/AnswersContex";
-import { useNavigate } from "react-router-dom";
 
 
 const StyledDiv = styled.div`
@@ -16,6 +15,7 @@ const StyledDiv = styled.div`
             height: 5rem;
             width: 80%;
             border-radius: var(--br);
+            padding: 10px;
         }
         > button {
             height: 2rem;
@@ -25,12 +25,13 @@ const StyledDiv = styled.div`
             color: black;
             border-radius: var(--br);
         }
+        > button:hover{
+            cursor: pointer;
+        }
     }
 `;
 
 const Answer = ({ userId, questionID }) => {
-
-    const navigate = useNavigate();
 
     const { setAnswers, answersActionTypes } = useContext(AnswersContext);
 

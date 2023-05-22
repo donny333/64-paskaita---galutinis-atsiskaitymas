@@ -23,11 +23,29 @@ const reducer = (state, action) => {
             })
             return [...state, action.data]
             case answersActionTypes.delete:
-            fetch(`http://localhost:8080/answers/${action.data}`, {
-                method: "DELETE"
-            })
-            return state.filter(answer => answer.id !== action.data)
-        case answersActionTypes.edit:
+                fetch(`http://localhost:8080/answers/${action.data}`, {
+                    method: "DELETE"
+                })
+                return state.filter(answer => answer.id !== action.data)
+            case answersActionTypes.edit:
+                fetch(`http://localhost:8080/answers/${action.id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body: JSON.stringify({answer:action.answer})
+                });
+                return state.map(answerCorrection => {
+                    if(answerCorrection.id === action.id){
+                        return {
+                            ...answerCorrection,
+                            answer:action.answer
+                            
+                        }
+                    } else {
+                        return answerCorrection
+                    }
+                })
             return 
         default:
             return state
