@@ -83,16 +83,27 @@ const AnswerText = ({answer}) => {
                     }
                 </div>
             </div>
-            {
-                correctionNeeded ?
-                <AnswerCorrection 
-                setCorrectionNeeded={setCorrectionNeeded}
-                answerId = {answer.id}
-                setAnswers = {setAnswers}
-                answersActionTypes = {answersActionTypes}
-                /> :
-                <p>{answer.answer}</p>
-            }
+            <div>
+                    <p>{answer.answer}</p>
+                {
+                    correctionNeeded &&
+                    <AnswerCorrection 
+                    setCorrectionNeeded={setCorrectionNeeded}
+                    answerId = {answer.id}
+                    setAnswers = {setAnswers}
+                    answersActionTypes = {answersActionTypes}
+                    />
+                }
+                {
+
+                    answer.correctionDate && 
+                    // typeof answer.correctionDate === 'string' &&
+                    <p style={{color:'red', fontWeight:'bold'}}>
+                        {`Last edited: ${answer.correctionDate}`}
+                    </p>
+                }
+
+            </div>
 
             <StyledThumbs>
                 <ThumbUpIcon />

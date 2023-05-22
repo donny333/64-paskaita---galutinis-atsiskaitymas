@@ -1,13 +1,37 @@
 import styled from "styled-components";
 import CheckSharpIcon from '@mui/icons-material/CheckSharp';
 import ClearSharpIcon from '@mui/icons-material/ClearSharp';
-import { useContext, useState } from "react";
-import AnswersContext from "../../contexts/AnswersContex";
+import { useState } from "react";
 
 const StyledAnswerCorrection = styled.div`
     width: 100%;
     > form {
         display: flex;
+        gap: 1rem;
+        > textarea{
+            width: 600px;
+            height: 4rem;
+            border-radius: var(--br);
+            padding: 10px;
+        }
+        > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            > button {
+                background-color: var(--bgSide);
+                border: none;
+            }
+            svg{
+                color: white;
+                width: 2rem;
+                height: 2rem;
+            }
+            svg:hover{
+                cursor: pointer;
+            }
+        }
     }
 `;
 
@@ -24,10 +48,13 @@ const AnswerCorrection = ({setCorrectionNeeded, answerId, setAnswers, answersAct
     }
 
     const submitHandler = e => {
+        e.preventDefault();
+        const correctionDate = new Date();
         setAnswers({
             type: answersActionTypes.edit,
             id: answerId,
-            answer: values.answer
+            answer: values.answer,
+            correctionDate: correctionDate
         })
         setCorrectionNeeded(false)
     }

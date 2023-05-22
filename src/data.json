@@ -139,7 +139,8 @@
       "id": 1,
       "questionID": 80,
       "userId": 3,
-      "answer": "Very good answer 1"
+      "answer": "Very good answer 3",
+      "correctionDate": "2023-05-22T15:03:11.345Z"
     },
     {
       "id": 2,
@@ -154,16 +155,31 @@
       "answer": "Very good answer 3"
     },
     {
-      "answer": "Kodel",
+      "answer": "Best way to start with open recourse platform. And don't forget to smile.",
       "userId": 3,
       "questionID": 20,
-      "id": "f407f75a-3222-4995-900b-db29bb89ca7e"
+      "id": "f407f75a-3222-4995-900b-db29bb89ca7e",
+      "correctionDate": "Mon May 22 2023 21:24:55 GMT+0300 (Eastern European Summer Time)"
     },
     {
       "answer": "Gražuola, ogi todėl",
       "userId": 4,
       "questionID": 20,
       "id": "feb2c362-2917-4faa-8be7-8372cd07d2f0"
+    },
+    {
+      "answer": "Yellow.",
+      "userId": 4,
+      "questionID": 10,
+      "id": "9c431275-8775-4942-983e-ff517aa5bfd9",
+      "correctionDate": "2023-05-22T15:00:27.791Z"
+    },
+    {
+      "answer": "cmon",
+      "userId": 3,
+      "questionID": 40,
+      "id": "f1b51c26-6628-4125-9a4b-08e91f8b65d2",
+      "correctionDate": "2023-05-22T15:07:01.913Z"
     }
   ]
 }

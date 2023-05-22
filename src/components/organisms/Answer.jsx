@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
     }
 `;
 
-const Answer = ({ userId, questionID }) => {
+const Answer = ({ userId, questionID}) => {
 
     const { setAnswers, answersActionTypes } = useContext(AnswersContext);
 

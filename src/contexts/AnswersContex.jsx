@@ -33,20 +33,22 @@ const reducer = (state, action) => {
                     headers: {
                         "Content-Type":"application/json"
                     },
-                    body: JSON.stringify({answer:action.answer})
+                    body: JSON.stringify({
+                        answer:action.answer,
+                        correctionDate: action.correctionDate
+                    })
                 });
                 return state.map(answerCorrection => {
                     if(answerCorrection.id === action.id){
                         return {
                             ...answerCorrection,
-                            answer:action.answer
-                            
+                            answer:action.answer, 
+                            correctionDate:action.correctionDate                            
                         }
                     } else {
                         return answerCorrection
                     }
                 })
-            return 
         default:
             return state
     }
