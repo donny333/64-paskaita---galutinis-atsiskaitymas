@@ -12,6 +12,9 @@ const StyledSection = styled.section`
         display: flex;
         justify-content: center;
         align-items: center;
+        > h1 {
+            letter-spacing: 3px;
+        }
         > img {
             width: 100%;
             height: 100%;
@@ -41,7 +44,7 @@ const HomeMainView = () => {
     return ( 
         <StyledSection>
             <div>
-                <h2>Connect your knowledge.</h2>
+                <h1>CONNECT YOUR KNOWLEDGE.</h1>
                 <img src="https://media.discordapp.net/attachments/1101880155149967370/1108033219019939940/donny333_an_abstract_image_that_represents_connections_or_netwo_1e71d5cb-52cc-41b8-9d4a-ae79100a3420.png?width=1509&height=566" alt="molecules connecting together" />
             </div>
             <div>
