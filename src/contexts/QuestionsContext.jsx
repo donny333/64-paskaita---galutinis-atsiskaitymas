@@ -6,7 +6,8 @@ const questionsActionTypes = {
     load: 'load_all_questions',
     add: 'add_new_question',
     edit: 'edit_question',
-    delete: 'delete_question'
+    delete: 'delete_question',
+    rating: 'changed_question_rating'
 }
 
 const reducer = (state, action) =>{
@@ -33,6 +34,25 @@ const reducer = (state, action) =>{
                         description:action.data.description,
                         editDate:action.data.editDate,
                         tag:action.data.tag
+                    }
+                } else {
+                    return question
+                }
+            })
+        case questionsActionTypes.rating:
+            fetch(`http://localhost:8080/questions/${action.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({
+                    questionRating:action.questionRating,
+                })
+            })            
+            return state.map(question =>{
+                if(question.id === action.id){
+                    return {...question, 
+                        questionRating:action.questionRating
                     }
                 } else {
                     return question

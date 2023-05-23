@@ -5,46 +5,63 @@
       "userName": "stasiukas",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102262564911583273/donny333_A_striking_and_rebellious_photograph_of_your_father_ri_35c51b77-58f6-478a-bf43-52b55e02ced3.png",
       "password": "stasiukas123!A",
-      "email": "stasiukas@gmail.com"
+      "email": "stasiukas@gmail.com",
+      "questionsRatings": []
     },
     {
       "id": 2,
       "userName": "donny333",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1101952319916093511/donny333_Create_a_photo_portrait_of_a_Jedi_Sentinel_inspired_by_17823007-9eb3-43db-80d8-9a6ea75eff5b.png?width=920&height=920",
       "password": "donny333!A",
-      "email": "donny333@gmail.com"
+      "email": "donny333@gmail.com",
+      "questionsRatings": []
     },
     {
       "id": 3,
       "userName": "beauty",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1101922167752499351/donny333_green_frog_with_little_shoes_on_its_legs_d004bd3c-3cdb-4445-9043-b1e802e7ce02.png?width=920&height=920",
       "password": "beauty123!A",
-      "email": "beauty@gmail.com"
+      "email": "beauty@gmail.com",
+      "questionsRatings": [
+        {
+          "questionId": 30,
+          "questionRating": -1
+        }
+      ]
     },
     {
       "id": 4,
       "userName": "warrior",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102101478526693376/donny333_Create_a_portrait_of_a_Jedi_Sentinel_inspired_by_the_p_023c7a6b-40f8-4c36-93aa-5447f82e0fc0.png?width=920&height=920",
       "password": "warrior123!A",
-      "email": "warrior@gmail.com"
+      "email": "warrior@gmail.com",
+      "questionsRatings": [
+        {
+          "questionId": 70,
+          "questionRating": -1
+        }
+      ]
     },
     {
       "id": 5,
       "userName": "vyts",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102102263574581268/donny333_Generate_an_image_of_a_Jedi_Sentinel_that_bears_a_stro_31c14c65-4579-4bae-81d1-2394e0c7a3b6.png?width=920&height=920",
       "password": "vyts123!A",
-      "email": "vyts@gmail.com"
+      "email": "vyts@gmail.com",
+      "questionsRatings": []
     },
     {
       "id": 6,
       "userName": "sherminator",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102104367089328178/donny333_Generate_an_image_of_the_Terminator_holding_a_Winchest_3bc81ff5-7e3e-4f6f-bf9a-234c647640c6.png?width=920&height=920",
       "password": "sherminator123!A",
-      "email": "sherminator@gmail.com"
+      "email": "sherminator@gmail.com",
+      "questionsRatings": []
     },
     {
       "userName": "Vegeta",
       "email": "vegeta@dbz.com",
+      "questionsRatings": [],
       "avatarURL": "https://preview.redd.it/ock6i5drreq21.png?auto=webp&s=082307cdf45fd019142446d11f5396474d7b4ed3",
       "password": "vegeta123!A",
       "id": "ca9327f1-0cdb-45cb-a510-2d59c4165a8e"
@@ -57,6 +74,14 @@
       "tag": "science",
       "title": "ipsum primis in",
       "description": "iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis",
+      "questionRating":[
+          {
+            "id":1000, "userId":3, "vote":1
+          },
+          {
+            "id":1001, "userId":4, "vote":-1
+          }
+        ],
       "text": "vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna"
     },
     {
@@ -65,6 +90,7 @@
       "tag": "technology",
       "title": "Tech Talk: Exploring the Frontiers of Innovation",
       "description": "Dive into the latest advancements in technology, from AI to space exploration, and discuss their impact on society and our future.",
+      "questionRating":[],
       "text": "How is technology revolutionizing various industries, shaping our lives, and what ethical considerations should be taken into account to ensure responsible development and use of emerging technologies? Join our forum to share insights, discuss the pros and cons, and explore the potential of cutting-edge technologies such as artificial intelligence, blockchain, robotics, and virtual reality. From healthcare to transportation, education to entertainment, how do these innovations redefine our possibilities while addressing concerns about privacy, job displacement, and inequality? Let's engage in thought-provoking conversations and envision a tech-driven future that benefits all of humanity.",
       "editDate": "2023-05-23T05:38:48.797Z"
     },
@@ -74,6 +100,7 @@
       "tag": "travel",
       "title": "duis mattis egestas",
       "description": "at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae",
+      "questionRating":[],
       "text": "neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor"
     },
     {
@@ -82,6 +109,7 @@
       "tag": "books",
       "title": "ante ipsum",
       "description": "erat volutpat in congue etiam justo etiam pretium iaculis justo in hac",
+      "questionRating":[],
       "text": "rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque"
     },
     {
@@ -90,6 +118,7 @@
       "tag": "science",
       "title": "id lobortis convallis",
       "description": "est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut",
+      "questionRating":[],
       "text": "aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam"
     },
     {
@@ -98,6 +127,7 @@
       "tag": "technology",
       "title": "at feugiat non pretium quis",
       "description": "id massa id nisl venenatis lacinia aenean sit amet justo",
+      "questionRating":[],
       "text": "lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at"
     },
     {
@@ -106,6 +136,7 @@
       "tag": "travel",
       "title": "sit amet",
       "description": "tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in",
+      "questionRating":[],
       "text": "sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna"
     },
     {
@@ -114,6 +145,7 @@
       "tag": "technology",
       "title": "Unraveling Deforestation's Global Impacts",
       "description": "Deforestation's impact: climate change, biodiversity loss, and global sustainability at risk.",
+      "questionRating":[],
       "text": "In light of the intricate and multifaceted relationships among widespread deforestation, climate change, and the ongoing loss of biodiversity, what are the intricate ecological, atmospheric, and socioeconomic ramifications that may arise from deforestation on a global scale? Furthermore, how might the cumulative impact of deforestation exacerbate climate change, disrupt intricate ecosystems, diminish crucial ecosystem services, and jeopardize the long-term survival of countless species, thus perpetuating a cycle of ecological imbalance and potentially posing significant threats to human societies and global sustainability?",
       "editDate": "2023-05-19T07:02:32.666Z"
     },
@@ -123,6 +155,7 @@
       "tag": "books",
       "title": "ut erat curabitur gravida nisi",
       "description": "amet eleifend pede libero quis orci nullam molestie nibh in",
+      "questionRating":[],
       "text": "nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede"
     },
     {
@@ -131,6 +164,7 @@
       "tag": "travel",
       "title": "Sustainable Travel's Global Impact",
       "description": "Explore the impact of sustainable travel on tourism, conservation, culture, and economies in popular destinations.",
+      "questionRating":[],
       "text": "How has the emergence of sustainable travel practices influenced the tourism industry, and what are the potential long-term implications for environmental conservation, cultural preservation, and economic development in popular travel destinations worldwide?",
       "editDate": "2023-05-19T07:21:37.646Z"
     }
@@ -194,6 +228,14 @@
       "userId": 3,
       "questionID": 10,
       "id": "024ad820-8599-4f89-a5df-fbdfe86ab1bf"
+    }
+  ],
+  "questionsRatings":[
+    {
+      "id":1000,
+      "questionId":30,
+      "userid": 3,
+      "rating": 0
     }
   ]
 }

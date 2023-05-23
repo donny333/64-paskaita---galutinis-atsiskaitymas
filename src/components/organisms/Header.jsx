@@ -18,7 +18,7 @@ const Header = () => {
     return ( 
         <StyledHeader>
             <Logo />
-            <SearchMain />
+            {/* <SearchMain /> */}
             <AddNewQuestionButton />
             <LoginButton />
         </StyledHeader>

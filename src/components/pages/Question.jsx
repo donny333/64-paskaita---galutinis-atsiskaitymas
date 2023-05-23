@@ -10,9 +10,10 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import QuestionsContext from "../../contexts/QuestionsContext";
-import Answer from "../organisms/Answer";
+import Answer from "../molecules/Answer";
 import AnswersContext from "../../contexts/AnswersContex";
 import AnswerText from "../molecules/AnswerText";
+import QuestionsRatingsContext from "../../contexts/QuestionsRatingsContext";
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px - 4rem);
@@ -63,24 +64,29 @@ const StyledDiv = styled.div`
 `;
 
 const StyledThumbs = styled.div`
-              display: flex;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: start;
             > p {
                 margin: 5px;
                 font-size: 1.5rem;
-            }  
+            }
+            > svg:hover {
+                cursor: pointer;
+            }
 `;
 
 const Question = () => {
 
-    const { currentUser }  = useContext(UsersContext);
+    const { currentUser, users, setUsers, UsersActionTypes }  = useContext(UsersContext);
     const { questionsActionTypes, setQuestions } = useContext(QuestionsContext);
     const { answers } = useContext(AnswersContext)
     const { id } = useParams();
     const [question, setQuestion] = useState([]);
     const navigate = useNavigate();
+    // const [userVotedUp, setUserVotedUp] = useState(false)
+    // const [userVotedDown, setUserVotedDown] = useState(false)
 
     useEffect(()=>{
         fetch(`http://localhost:8080/questions/${id}`)
@@ -95,14 +101,55 @@ const Question = () => {
         })
         navigate('/')
     }
+
+    let currentRating = 0;
+    let userVotedUp = false;
+    let userVotedDown = false;
+
+
+    if(question.questionRating !== undefined){
+        if(question.questionRating.length === 1){
+            currentRating += question.questionRating[0].vote
+        } else if(question.questionRating.length > 1){
+            question.questionRating.forEach(rate => currentRating += rate.vote)
+        }
+        if(currentUser) {
+            question.questionRating.forEach(rate => {
+                if(rate.userId === currentUser.id){
+                    if(rate.vote === 1){
+                        userVotedUp = true
+                    } else if(rate.vote === -1){
+                        userVotedDown = true
+                    }
+                }
+            })
+        }
+    }
+    
+    const questionRatingUp = () => {
+        
+    }
+
+    const questionRatingDown = () => {
+
+    }
     
     return ( 
         <StyledMain>
             <section>
                 <StyledThumbs>
-                    <ThumbUpIcon />
-                    <p>0</p>
-                    <ThumbDownIcon />
+                    {
+
+                    }
+                    <ThumbUpIcon 
+                        onClick={() => questionRatingUp()}
+                        style={{ color: userVotedUp && 'green'}}
+                    />
+                    <p>{currentRating}</p>
+                    <ThumbDownIcon 
+                        onClick={() => questionRatingDown()} 
+                        style={{ color: userVotedDown && 'red'}}
+                    />
                 </StyledThumbs>
                 <StyledDiv>
                     <div>
