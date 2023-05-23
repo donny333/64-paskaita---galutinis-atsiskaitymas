@@ -13,7 +13,7 @@ import QuestionsContext from "../../contexts/QuestionsContext";
 import Answer from "../molecules/Answer";
 import AnswersContext from "../../contexts/AnswersContex";
 import AnswerText from "../molecules/AnswerText";
-import QuestionsRatingsContext from "../../contexts/QuestionsRatingsContext";
+import { v4 as generateId } from 'uuid'
 
 const StyledMain = styled.main`
     min-height: calc(100vh - 200px - 4rem);
@@ -85,8 +85,6 @@ const Question = () => {
     const { id } = useParams();
     const [question, setQuestion] = useState([]);
     const navigate = useNavigate();
-    // const [userVotedUp, setUserVotedUp] = useState(false)
-    // const [userVotedDown, setUserVotedDown] = useState(false)
 
     useEffect(()=>{
         fetch(`http://localhost:8080/questions/${id}`)
@@ -102,10 +100,16 @@ const Question = () => {
         navigate('/')
     }
 
+    const [userVote, setUserVote] = useState(0)
+    const [ totalRating, setTotalRating ] = useState(0)
+
     let currentRating = 0;
     let userVotedUp = false;
     let userVotedDown = false;
 
+    useEffect(()=>{
+        console.log('something')
+    },[])
 
     if(question.questionRating !== undefined){
         if(question.questionRating.length === 1){
@@ -127,11 +131,32 @@ const Question = () => {
     }
     
     const questionRatingUp = () => {
-        
+        if(userVote !== 1){
+            console.log('you can vote up!')
+        }
     }
 
     const questionRatingDown = () => {
-
+        if(userVote !== -1){       
+            // const userAlreadyVoted = question.questionRating.find(rating => rating.userId === currentUser.id)
+            // if(userAlreadyVoted){
+            //     console.log('voted')
+            // } else {
+            //     console.log('not voted')
+            //     const newVote = {
+            //         id: generateId(),
+            //         userId: currentUser.id,
+            //         vote: -1
+            //     }
+            //     setQuestions({
+            //         type: questionsActionTypes.addQR,
+            //         data: newVote,
+            //         questionId: question.id
+            //     })
+            // }
+            setUserVote(userVote - 1)
+            userVotedDown = false
+        }
     }
     
     return ( 
@@ -145,10 +170,10 @@ const Question = () => {
                         onClick={() => questionRatingUp()}
                         style={{ color: userVotedUp && 'green'}}
                     />
-                    <p>{currentRating}</p>
+                    <p>{currentRating + userVote}</p>
                     <ThumbDownIcon 
                         onClick={() => questionRatingDown()} 
-                        style={{ color: userVotedDown && 'red'}}
+                        style={{ color: userVotedDown === -1 && 'red'}}
                     />
                 </StyledThumbs>
                 <StyledDiv>

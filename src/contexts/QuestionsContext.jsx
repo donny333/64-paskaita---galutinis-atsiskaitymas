@@ -7,7 +7,7 @@ const questionsActionTypes = {
     add: 'add_new_question',
     edit: 'edit_question',
     delete: 'delete_question',
-    rating: 'changed_question_rating'
+    addQR: 'add_new_question_rating'
 }
 
 const reducer = (state, action) =>{
@@ -39,25 +39,6 @@ const reducer = (state, action) =>{
                     return question
                 }
             })
-        case questionsActionTypes.rating:
-            fetch(`http://localhost:8080/questions/${action.id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({
-                    questionRating:action.questionRating,
-                })
-            })            
-            return state.map(question =>{
-                if(question.id === action.id){
-                    return {...question, 
-                        questionRating:action.questionRating
-                    }
-                } else {
-                    return question
-                }
-            })
         case questionsActionTypes.add:
             fetch(`http://localhost:8080/questions/`, {
                 method: "POST",
@@ -71,6 +52,18 @@ const reducer = (state, action) =>{
             console.log('laba diena')
             fetch(`http://localhost:8080/questions/${action.id}`, { method: 'DELETE' })
             return state.filter(question => question.id !== action.id)
+        case questionsActionTypes.addQR:
+            return state.map(question => {
+                if(question.id === action.questionId){
+                    console.log(question)
+                    const newRates = [...question.questionRating, action.data]
+                    console.log(newRates)
+                    return {
+                        ...question,
+                        questionRating:newRates
+                    }
+                }
+            })
         default:
             return state
     }

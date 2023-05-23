@@ -6,11 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { UsersProvider } from './contexts/UsersContext';
 import { QuestionsProvider } from './contexts/QuestionsContext';
 import { AnswersProvider } from './contexts/AnswersContex';
-import { QuestionsRatingsProvider } from './contexts/QuestionsRatingsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <QuestionsRatingsProvider>
         <AnswersProvider>
             <QuestionsProvider>
                 <UsersProvider>
@@ -20,5 +18,4 @@ root.render(
                 </UsersProvider>
             </QuestionsProvider>
         </AnswersProvider>
-    </QuestionsRatingsProvider>
 );
