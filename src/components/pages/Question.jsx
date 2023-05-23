@@ -107,10 +107,6 @@ const Question = () => {
     let userVotedUp = false;
     let userVotedDown = false;
 
-    useEffect(()=>{
-        console.log('something')
-    },[])
-
     if(question.questionRating !== undefined){
         if(question.questionRating.length === 1){
             currentRating += question.questionRating[0].vote
@@ -130,32 +126,28 @@ const Question = () => {
         }
     }
     
+
+    useEffect(() => {
+        if(userVotedUp === true){
+            setUserVote(1)
+        } else if(userVotedDown === true ){
+            setUserVote(-1)
+        } else {
+            setUserVote(0)
+        }
+    })
+
+    console.log(userVote)
+    
     const questionRatingUp = () => {
-        if(userVote !== 1){
-            console.log('you can vote up!')
+        if(currentUser && userVote < 1){
+            setUserVote(userVote + 1)
         }
     }
 
     const questionRatingDown = () => {
-        if(userVote !== -1){       
-            // const userAlreadyVoted = question.questionRating.find(rating => rating.userId === currentUser.id)
-            // if(userAlreadyVoted){
-            //     console.log('voted')
-            // } else {
-            //     console.log('not voted')
-            //     const newVote = {
-            //         id: generateId(),
-            //         userId: currentUser.id,
-            //         vote: -1
-            //     }
-            //     setQuestions({
-            //         type: questionsActionTypes.addQR,
-            //         data: newVote,
-            //         questionId: question.id
-            //     })
-            // }
+        if(currentUser && userVote > -1){       
             setUserVote(userVote - 1)
-            userVotedDown = false
         }
     }
     
