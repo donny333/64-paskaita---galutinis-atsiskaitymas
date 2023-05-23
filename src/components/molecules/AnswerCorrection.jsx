@@ -50,11 +50,12 @@ const AnswerCorrection = ({setCorrectionNeeded, answerId, setAnswers, answersAct
     const submitHandler = e => {
         e.preventDefault();
         const correctionDate = new Date();
+        console.log(correctionDate.toString())
         setAnswers({
             type: answersActionTypes.edit,
             id: answerId,
             answer: values.answer,
-            correctionDate: correctionDate
+            correctionDate: correctionDate.toISOString()
         })
         setCorrectionNeeded(false)
     }

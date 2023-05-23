@@ -97,9 +97,8 @@ const AnswerText = ({answer}) => {
                 {
 
                     answer.correctionDate && 
-                    // typeof answer.correctionDate === 'string' &&
                     <p style={{color:'red', fontWeight:'bold'}}>
-                        {`Last edited: ${answer.correctionDate}`}
+                        {`Last edited: ${answer.correctionDate.slice(0, 10)}`}
                     </p>
                 }
 
