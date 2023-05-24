@@ -150,6 +150,7 @@ const QuestionAdd = () => {
     return ( 
         <StyledMain>
             <h1>Create new question</h1>
+                <p style={{color:'red', fontSize:'1.25rem', marginBottom:'3px'}}>Please be aware, that title can't be changed later.</p>
             <form onSubmit={formik.handleSubmit}>
                 <div>
                     <label htmlFor="title">Enter title: </label>
