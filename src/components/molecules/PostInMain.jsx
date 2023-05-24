@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import EditIcons from "./EditIcons";
 
 const StyledDiv = styled.div`
-    padding: 10px;
+    padding: 10px 2rem;
     background-color: var(--bgInputs);
     border-radius: var(--br);
     display: grid;

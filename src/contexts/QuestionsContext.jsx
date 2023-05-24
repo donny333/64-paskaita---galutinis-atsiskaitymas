@@ -48,7 +48,6 @@ const reducer = (state, action) =>{
             })
             return [...state, action.data]
         case questionsActionTypes.delete:
-            console.log('laba diena')
             fetch(`http://localhost:8080/questions/${action.id}`, { method: 'DELETE' })
             return state.filter(question => question.id !== action.id)
         default:

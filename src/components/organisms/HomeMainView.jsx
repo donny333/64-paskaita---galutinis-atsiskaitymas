@@ -28,12 +28,14 @@ const StyledSection = styled.section`
     > div:last-child{
         > div:first-child {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             padding: 0 2rem;
+            gap: 2rem;
             >h1{
                 text-align: center;
                 margin: 0;
                 margin-top: 1rem;
+                font-size: 1.5rem;
                 font-weight: 400;
             }
             >h1:hover{
