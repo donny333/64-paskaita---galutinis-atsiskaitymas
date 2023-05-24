@@ -52,15 +52,22 @@ const reducer = (state, action) =>{
             fetch(`http://localhost:8080/questions/${action.id}`, { method: 'DELETE' })
             return state.filter(question => question.id !== action.id)
         case questionsActionTypes.addQR:
+            fetch(`http://localhost:8080/questions/${action.questionId}`,{
+                method: "PATCH",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({questionRating:action.data})
+            })
+
             return state.map(question => {
                 if(question.id === action.questionId){
-                    console.log(question)
-                    const newRates = [...question.questionRating, action.data]
-                    console.log(newRates)
                     return {
                         ...question,
-                        questionRating:newRates
+                        questionRating:action.data
                     }
+                } else {
+                    return  question
                 }
             })
         default:
@@ -68,10 +75,12 @@ const reducer = (state, action) =>{
     }
 }
 
+
 const QuestionsProvider = ({ children }) => {
-
+    
     const[questions, setQuestions] = useReducer(reducer, [])
-
+    console.log(questions)
+    
     useEffect(()=>{
         fetch('http://localhost:8080/questions')
             .then(res => res.json())

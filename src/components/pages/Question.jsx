@@ -85,6 +85,8 @@ const Question = () => {
     const { id } = useParams();
     const [question, setQuestion] = useState([]);
     const navigate = useNavigate();
+    const [userVote, setUserVote] = useState(0)
+    const [ totalRating, setTotalRating ] = useState(0)
 
     useEffect(()=>{
         fetch(`http://localhost:8080/questions/${id}`)
@@ -100,18 +102,17 @@ const Question = () => {
         navigate('/')
     }
 
-    const [userVote, setUserVote] = useState(0)
-    const [ totalRating, setTotalRating ] = useState(0)
 
     let currentRating = 0;
     let userVotedUp = false;
     let userVotedDown = false;
 
+
     if(question.questionRating !== undefined){
         if(question.questionRating.length === 1){
             currentRating += question.questionRating[0].vote
         } else if(question.questionRating.length > 1){
-            question.questionRating.forEach(rate => currentRating += rate.vote)
+            question.questionRating.forEach(rate => {currentRating += rate.vote})
         }
         if(currentUser) {
             question.questionRating.forEach(rate => {
@@ -126,28 +127,38 @@ const Question = () => {
         }
     }
     
-
-    useEffect(() => {
-        if(userVotedUp === true){
-            setUserVote(1)
-        } else if(userVotedDown === true ){
-            setUserVote(-1)
-        } else {
-            setUserVote(0)
-        }
-    })
-
-    console.log(userVote)
-    
     const questionRatingUp = () => {
         if(currentUser && userVote < 1){
+            setTotalRating(totalRating + 1)
             setUserVote(userVote + 1)
+            setQuestions({
+                type: questionsActionTypes.addQR,
+                questionId:question.id,
+                data: [...question.questionRating, {
+                    id: generateId(),
+                    userId: currentUser.id,
+                    vote: userVote
+                }]
+            })
         }
     }
 
+    console.log(totalRating)
+    console.log(question)
+    
     const questionRatingDown = () => {
-        if(currentUser && userVote > -1){       
+        if(currentUser && userVote > -1){
+            setTotalRating(totalRating - 1)
             setUserVote(userVote - 1)
+            setQuestions({
+                type: questionsActionTypes.addQR,
+                questionId:question.id,
+                data: [...question.questionRating, {
+                    id: generateId(),
+                    userId: currentUser.id,
+                    vote: userVote
+                }]
+            })
         }
     }
     
@@ -160,12 +171,12 @@ const Question = () => {
                     }
                     <ThumbUpIcon 
                         onClick={() => questionRatingUp()}
-                        style={{ color: userVotedUp && 'green'}}
+                        style={{ color: userVote === 1 && 'green'}}
                     />
-                    <p>{currentRating + userVote}</p>
+                    <p>{totalRating}</p>
                     <ThumbDownIcon 
                         onClick={() => questionRatingDown()} 
-                        style={{ color: userVotedDown === -1 && 'red'}}
+                        style={{ color: userVote === -1 && 'red'}}
                     />
                 </StyledThumbs>
                 <StyledDiv>
