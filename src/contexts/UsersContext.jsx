@@ -4,7 +4,8 @@ const UsersContext = createContext();
 
 const UsersActionTypes = {
     load: 'load_all_users',
-    add: 'add_new_user'
+    add: 'add_new_user',
+    editQR: 'edit_question_rating'
 }
 
 const reducer = (state, action) => {
@@ -20,6 +21,17 @@ const reducer = (state, action) => {
                 body: JSON.stringify(action.data)
             })
             return [...state, action.data]
+        case UsersActionTypes.editQR:
+            console.log('works')
+            fetch(`http://localhost:8080/users/${action.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    questionsRatings:action.questionsRatings
+                })
+            })
         default:
             return state
     }

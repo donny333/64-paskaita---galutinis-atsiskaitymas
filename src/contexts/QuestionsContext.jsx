@@ -6,7 +6,8 @@ const questionsActionTypes = {
     load: 'load_all_questions',
     add: 'add_new_question',
     edit: 'edit_question',
-    delete: 'delete_question'
+    delete: 'delete_question',
+    addQR: 'add_new_question_rating'
 }
 
 const reducer = (state, action) =>{
@@ -50,15 +51,36 @@ const reducer = (state, action) =>{
         case questionsActionTypes.delete:
             fetch(`http://localhost:8080/questions/${action.id}`, { method: 'DELETE' })
             return state.filter(question => question.id !== action.id)
+        case questionsActionTypes.addQR:
+            fetch(`http://localhost:8080/questions/${action.questionId}`,{
+                method: "PATCH",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({questionRating:action.data})
+            })
+
+            return state.map(question => {
+                if(question.id === action.questionId){
+                    return {
+                        ...question,
+                        questionRating:action.data
+                    }
+                } else {
+                    return  question
+                }
+            })
         default:
             return state
     }
 }
 
+
 const QuestionsProvider = ({ children }) => {
-
+    
     const[questions, setQuestions] = useReducer(reducer, [])
-
+    console.log(questions)
+    
     useEffect(()=>{
         fetch('http://localhost:8080/questions')
             .then(res => res.json())

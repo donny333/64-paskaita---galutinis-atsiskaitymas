@@ -9,13 +9,13 @@ import { AnswersProvider } from './contexts/AnswersContex';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <AnswersProvider>
-        <QuestionsProvider>
-            <UsersProvider>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
-            </UsersProvider>
-        </QuestionsProvider>
-    </AnswersProvider>
+        <AnswersProvider>
+            <QuestionsProvider>
+                <UsersProvider>
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                </UsersProvider>
+            </QuestionsProvider>
+        </AnswersProvider>
 );
