@@ -44,7 +44,8 @@ const StyledThumbs = styled.div`
             > p {
                 margin: 5px;
                 font-size: 1.5rem;
-            }  
+            }
+
 `;
 
 
@@ -105,9 +106,9 @@ const AnswerText = ({answer}) => {
             </div>
 
             <StyledThumbs>
-                <ThumbUpIcon />
+                {/* <ThumbUpIcon />
                 <p>0</p>
-                <ThumbDownIcon />
+                <ThumbDownIcon /> */}
             </StyledThumbs>
         </StyledDiv>
     );
