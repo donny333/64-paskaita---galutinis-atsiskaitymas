@@ -142,9 +142,6 @@ const Question = () => {
             })
         }
     }
-
-    console.log(totalRating)
-    console.log(question)
     
     const questionRatingDown = () => {
         if(currentUser && userVote > -1){

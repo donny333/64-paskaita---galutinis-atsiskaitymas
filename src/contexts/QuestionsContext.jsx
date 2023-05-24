@@ -79,7 +79,6 @@ const reducer = (state, action) =>{
 const QuestionsProvider = ({ children }) => {
     
     const[questions, setQuestions] = useReducer(reducer, [])
-    console.log(questions)
     
     useEffect(()=>{
         fetch('http://localhost:8080/questions')
