@@ -65,6 +65,13 @@
       "avatarURL": "https://preview.redd.it/ock6i5drreq21.png?auto=webp&s=082307cdf45fd019142446d11f5396474d7b4ed3",
       "password": "vegeta123!A",
       "id": "ca9327f1-0cdb-45cb-a510-2d59c4165a8e"
+    },
+    {
+      "userName": "donatas",
+      "email": "donatas@gmail.com",
+      "avatarURL": "https://i.pinimg.com/originals/4d/86/5e/4d865ea47a8675d682ff35ad904a0af6.png",
+      "password": "Donatas123!",
+      "id": "4d1fc507-1f48-4f2b-b82a-b58163cf3df7"
     }
   ],
   "questions": [
@@ -129,6 +136,21 @@
           "id": "cfe88d10-c34a-48c0-a54a-487438cfb4a0",
           "userId": 3,
           "vote": 0
+        },
+        {
+          "id": "c37a9b18-9591-40f0-86c2-e1709338f9c2",
+          "userId": 3,
+          "vote": 0
+        },
+        {
+          "id": "007567ac-bee2-4185-bac2-a22ba613ef90",
+          "userId": 3,
+          "vote": 0
+        },
+        {
+          "id": "2932ff3e-c03d-4490-b007-737fc4bbe5bc",
+          "userId": 3,
+          "vote": 1
         }
       ],
       "text": "vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna"
@@ -139,7 +161,23 @@
       "tag": "technology",
       "title": "Tech Talk: Exploring the Frontiers of Innovation",
       "description": "Dive into the latest advancements in technology, from AI to space exploration, and discuss their impact on society and our future.",
-      "questionRating": [],
+      "questionRating": [
+        {
+          "id": "7abde3b8-1120-4d8e-8190-7a58fed4509f",
+          "userId": 3,
+          "vote": 0
+        },
+        {
+          "id": "302d7532-c82a-4dc1-a675-87ed36ee1b9f",
+          "userId": 3,
+          "vote": 0
+        },
+        {
+          "id": "1f150248-eaac-449e-a209-e62f0fcb7db5",
+          "userId": 3,
+          "vote": 0
+        }
+      ],
       "text": "How is technology revolutionizing various industries, shaping our lives, and what ethical considerations should be taken into account to ensure responsible development and use of emerging technologies? Join our forum to share insights, discuss the pros and cons, and explore the potential of cutting-edge technologies such as artificial intelligence, blockchain, robotics, and virtual reality. From healthcare to transportation, education to entertainment, how do these innovations redefine our possibilities while addressing concerns about privacy, job displacement, and inequality? Let's engage in thought-provoking conversations and envision a tech-driven future that benefits all of humanity.",
       "editDate": "2023-05-23T05:38:48.797Z"
     },
@@ -206,16 +244,6 @@
       "description": "amet eleifend pede libero quis orci nullam molestie nibh in",
       "questionRating": [],
       "text": "nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede"
-    },
-    {
-      "id": 100,
-      "userId": 3,
-      "tag": "travel",
-      "title": "Sustainable Travel's Global Impact",
-      "description": "Explore the impact of sustainable travel on tourism, conservation, culture, and economies in popular destinations.",
-      "questionRating": [],
-      "text": "How has the emergence of sustainable travel practices influenced the tourism industry, and what are the potential long-term implications for environmental conservation, cultural preservation, and economic development in popular travel destinations worldwide?",
-      "editDate": "2023-05-19T07:21:37.646Z"
     },
     {
       "title": "Unraveling Science's Vast Tapestry",
