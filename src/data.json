@@ -5,63 +5,46 @@
       "userName": "stasiukas",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102262564911583273/donny333_A_striking_and_rebellious_photograph_of_your_father_ri_35c51b77-58f6-478a-bf43-52b55e02ced3.png",
       "password": "stasiukas123!A",
-      "email": "stasiukas@gmail.com",
-      "questionsRatings": []
+      "email": "stasiukas@gmail.com"
     },
     {
       "id": 2,
       "userName": "donny333",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1101952319916093511/donny333_Create_a_photo_portrait_of_a_Jedi_Sentinel_inspired_by_17823007-9eb3-43db-80d8-9a6ea75eff5b.png?width=920&height=920",
       "password": "donny333!A",
-      "email": "donny333@gmail.com",
-      "questionsRatings": []
+      "email": "donny333@gmail.com"
     },
     {
       "id": 3,
       "userName": "beauty",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1101922167752499351/donny333_green_frog_with_little_shoes_on_its_legs_d004bd3c-3cdb-4445-9043-b1e802e7ce02.png?width=920&height=920",
       "password": "beauty123!A",
-      "email": "beauty@gmail.com",
-      "questionsRatings": [
-        {
-          "questionId": 30,
-          "questionRating": -1
-        }
-      ]
+      "email": "beauty@gmail.com"
     },
     {
       "id": 4,
       "userName": "warrior",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102101478526693376/donny333_Create_a_portrait_of_a_Jedi_Sentinel_inspired_by_the_p_023c7a6b-40f8-4c36-93aa-5447f82e0fc0.png?width=920&height=920",
       "password": "warrior123!A",
-      "email": "warrior@gmail.com",
-      "questionsRatings": [
-        {
-          "questionId": 70,
-          "questionRating": -1
-        }
-      ]
+      "email": "warrior@gmail.com"
     },
     {
       "id": 5,
       "userName": "vyts",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102102263574581268/donny333_Generate_an_image_of_a_Jedi_Sentinel_that_bears_a_stro_31c14c65-4579-4bae-81d1-2394e0c7a3b6.png?width=920&height=920",
       "password": "vyts123!A",
-      "email": "vyts@gmail.com",
-      "questionsRatings": []
+      "email": "vyts@gmail.com"
     },
     {
       "id": 6,
       "userName": "sherminator",
       "avatarURL": "https://media.discordapp.net/attachments/1101880155149967370/1102104367089328178/donny333_Generate_an_image_of_the_Terminator_holding_a_Winchest_3bc81ff5-7e3e-4f6f-bf9a-234c647640c6.png?width=920&height=920",
       "password": "sherminator123!A",
-      "email": "sherminator@gmail.com",
-      "questionsRatings": []
+      "email": "sherminator@gmail.com"
     },
     {
       "userName": "Vegeta",
       "email": "vegeta@dbz.com",
-      "questionsRatings": [],
       "avatarURL": "https://preview.redd.it/ock6i5drreq21.png?auto=webp&s=082307cdf45fd019142446d11f5396474d7b4ed3",
       "password": "vegeta123!A",
       "id": "ca9327f1-0cdb-45cb-a510-2d59c4165a8e"
@@ -85,72 +68,26 @@
         {
           "id": 1000,
           "userId": 3,
-          "vote": 1
+          "userVotedUp":true,
+          "userVotedDown":false
         },
         {
           "id": 1001,
           "userId": 4,
-          "vote": -1
+          "userVotedUp":true,
+          "userVotedDown":false
         },
         {
           "id": 1001,
           "userId": 6,
-          "vote": -1
+          "userVotedUp":false,
+          "userVotedDown":true
         },
         {
           "id": "01e00178-fb98-4cfd-a275-db66468ad093",
           "userId": 3,
-          "vote": -1
-        },
-        {
-          "id": "d03e82c1-0414-4fc1-9b46-69ab99e382a4",
-          "userId": 3,
-          "vote": 0
-        },
-        {
-          "id": "386505c6-1326-4c0f-8e6a-755585637eb5",
-          "userId": 3,
-          "vote": 0
-        },
-        {
-          "id": "64195825-ed4f-4701-bd57-a6b2573ad6f5",
-          "userId": 3,
-          "vote": 0
-        },
-        {
-          "id": "14c9eaf8-2540-480e-8ae7-4d6d6f539fbc",
-          "userId": 3,
-          "vote": 0
-        },
-        {
-          "id": "cf636bd7-bc6b-47e8-9418-8bb536078192",
-          "userId": 3,
-          "vote": 1
-        },
-        {
-          "id": "8033c663-bc7e-446f-841b-a0d13ea27fd6",
-          "userId": 3,
-          "vote": 1
-        },
-        {
-          "id": "cfe88d10-c34a-48c0-a54a-487438cfb4a0",
-          "userId": 3,
-          "vote": 0
-        },
-        {
-          "id": "c37a9b18-9591-40f0-86c2-e1709338f9c2",
-          "userId": 3,
-          "vote": 0
-        },
-        {
-          "id": "007567ac-bee2-4185-bac2-a22ba613ef90",
-          "userId": 3,
-          "vote": 0
-        },
-        {
-          "id": "2932ff3e-c03d-4490-b007-737fc4bbe5bc",
-          "userId": 3,
-          "vote": 1
+          "userVotedUp":true,
+          "userVotedDown":false
         }
       ],
       "text": "vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna"
@@ -165,16 +102,11 @@
         {
           "id": "7abde3b8-1120-4d8e-8190-7a58fed4509f",
           "userId": 3,
-          "vote": 0
+          "vote": 1
         },
         {
           "id": "302d7532-c82a-4dc1-a675-87ed36ee1b9f",
-          "userId": 3,
-          "vote": 0
-        },
-        {
-          "id": "1f150248-eaac-449e-a209-e62f0fcb7db5",
-          "userId": 3,
+          "userId": 4,
           "vote": 0
         }
       ],

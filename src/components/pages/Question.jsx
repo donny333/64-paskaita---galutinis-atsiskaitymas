@@ -109,11 +109,18 @@ const Question = () => {
 
 
     if(question.questionRating !== undefined){
-        if(question.questionRating.length === 1){
-            currentRating += question.questionRating[0].vote
-        } else if(question.questionRating.length > 1){
-            question.questionRating.forEach(rate => {currentRating += rate.vote})
-        }
+        question.questionRating.forEach(rate => {
+            if(!rate.userVotedUp && !rate.userVotedDown){
+                console.log('0')
+                currentRating += 0;
+            } else if(rate.userVotedUp && !rate.userVotedDown) {
+                console.log('+1')
+                currentRating += 1;
+            } else if(!rate.userVotedUp && rate.userVotedDown){
+                console.log('-1')
+                currentRating -= 1;
+            }
+        })
         if(currentUser) {
             question.questionRating.forEach(rate => {
                 if(rate.userId === currentUser.id){
@@ -170,7 +177,7 @@ const Question = () => {
                         onClick={() => questionRatingUp()}
                         style={{ color: userVote === 1 && 'green'}}
                     />
-                    <p>{totalRating}</p>
+                    <p>{currentRating}</p>
                     <ThumbDownIcon 
                         onClick={() => questionRatingDown()} 
                         style={{ color: userVote === -1 && 'red'}}
