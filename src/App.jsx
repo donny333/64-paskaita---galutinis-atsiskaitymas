@@ -5,7 +5,7 @@ import Home from './components/pages/Home';
 import { Routes, Route } from 'react-router-dom';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
-import Question from './components/pages/Question';
+import Question from './components/pages/Question Page/Question';
 import QuestionEdit from './components/pages/QuestionEdit';
 import QuestionAdd from './components/pages/QuestionAdd';
 

@@ -68,26 +68,26 @@
         {
           "id": 1000,
           "userId": 3,
-          "userVotedUp":true,
-          "userVotedDown":false
+          "userVotedUp": false,
+          "userVotedDown": true
         },
         {
           "id": 1001,
           "userId": 4,
-          "userVotedUp":true,
-          "userVotedDown":false
+          "userVotedUp": true,
+          "userVotedDown": false
         },
         {
           "id": 1001,
           "userId": 6,
-          "userVotedUp":false,
-          "userVotedDown":true
+          "userVotedUp": false,
+          "userVotedDown": true
         },
         {
           "id": "01e00178-fb98-4cfd-a275-db66468ad093",
-          "userId": 3,
-          "userVotedUp":true,
-          "userVotedDown":false
+          "userId": 5,
+          "userVotedUp": true,
+          "userVotedDown": false
         }
       ],
       "text": "vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna"
