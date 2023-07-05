@@ -23,7 +23,6 @@ const Question = () => {
     const { id } = useParams();
     const [question, setQuestion] = useState([]);
     const navigate = useNavigate();
-    const [ currentRating, setCurrentRating ] = useState(0)
 
     useEffect(()=>{
         fetch(`http://localhost:8080/questions/${id}`)
@@ -241,7 +240,7 @@ const Question = () => {
                         onClick={() => questionRatingUp()}
                         style={{ color: question.questionRating && currentUser && question.questionRating.find((rating)=> rating.userId === currentUser.id && rating.userVotedUp === true) ? 'green' : ''}}
                     />
-                    <p>{primaryCurrentRating + currentRating}</p>
+                    <p>{primaryCurrentRating}</p>
                     <ThumbDownIcon 
                         onClick={() => questionRatingDown()}
                         style={{ color: question.questionRating && currentUser && question.questionRating.find((rating)=> rating.userId === currentUser.id && rating.userVotedDown === true) ? 'red' : ''}}
