@@ -68,20 +68,20 @@
         {
           "id": 1000,
           "userId": 3,
-          "userVotedUp": false,
-          "userVotedDown": true
-        },
-        {
-          "id": 1001,
-          "userId": 4,
-          "userVotedUp": false,
+          "userVotedUp": true,
           "userVotedDown": false
         },
         {
           "id": 1001,
+          "userId": 4,
+          "userVotedUp": true,
+          "userVotedDown": false
+        },
+        {
+          "id": 1002345,
           "userId": 6,
           "userVotedUp": false,
-          "userVotedDown": true
+          "userVotedDown": false
         },
         {
           "id": "01e00178-fb98-4cfd-a275-db66468ad093",
@@ -109,7 +109,7 @@
           "id": "7e9b4af7-52e2-4fab-8d52-d4c348c95fc9",
           "userId": 4,
           "userVotedDown": false,
-          "userVotedUp": false
+          "userVotedUp": true
         }
       ],
       "text": "How is technology revolutionizing various industries, shaping our lives, and what ethical considerations should be taken into account to ensure responsible development and use of emerging technologies? Join our forum to share insights, discuss the pros and cons, and explore the potential of cutting-edge technologies such as artificial intelligence, blockchain, robotics, and virtual reality. From healthcare to transportation, education to entertainment, how do these innovations redefine our possibilities while addressing concerns about privacy, job displacement, and inequality? Let's engage in thought-provoking conversations and envision a tech-driven future that benefits all of humanity.",
@@ -157,7 +157,14 @@
       "tag": "travel",
       "title": "sit amet",
       "description": "tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in",
-      "questionRating": [],
+      "questionRating": [
+        {
+          "id": "fbf92d25-79df-4bdf-90a9-85e8a9cbfd75",
+          "userId": 3,
+          "userVotedDown": false,
+          "userVotedUp": true
+        }
+      ],
       "text": "sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna"
     },
     {
@@ -185,7 +192,20 @@
       "text": "What are the key scientific discoveries and advancements across various disciplines, and how do they contribute to our understanding of the natural world, technological progress, and societal development? Join us in this forum to delve into the fascinating realms of physics, chemistry, biology, astronomy, and more. Discuss the latest breakthroughs, from quantum computing to genetic engineering, and explore their potential applications in fields such as healthcare, energy, and environmental conservation. How do these scientific endeavors drive innovation, address global challenges, and shape the future of humanity? Let's engage in stimulating conversations, exchange knowledge, and appreciate the awe-inspiring wonders of scientific exploration. Together, we can unravel the intricacies of our world and foster a deeper appreciation for the beauty of science.",
       "tag": "science",
       "userId": 2,
-      "questionRating": [],
+      "questionRating": [
+        {
+          "id": "0e088586-16a2-4ae9-bb86-84c2a03fec15",
+          "userId": 4,
+          "userVotedDown": false,
+          "userVotedUp": true
+        },
+        {
+          "id": "e22aaabd-29fb-4be3-82da-403434a8120e",
+          "userId": 3,
+          "userVotedDown": false,
+          "userVotedUp": true
+        }
+      ],
       "id": "013eef17-34ed-4241-b6a8-ea551ab2840a"
     }
   ],

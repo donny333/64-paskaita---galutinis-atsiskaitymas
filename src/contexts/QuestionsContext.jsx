@@ -60,6 +60,16 @@ const reducer = (state, action) =>{
                 },
                 body: JSON.stringify({questionRating:action.data})
             })
+            state.map(question => {
+                if(question.id === action.questionId){
+                    return {
+                        ...question,
+                        questionRating: action.data
+                    }
+                } else {
+                    return question
+                }
+            })
         default:
             return state
     }

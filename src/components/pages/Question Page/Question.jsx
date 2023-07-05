@@ -77,7 +77,6 @@ const Question = () => {
                     })
                 } else {
                     /* USER ALREADY VOTED */
-                    console.log(didUserVoted)
                     if(didUserVoted.userVotedUp === true){
                         /* QUESTION VOTED UP */
                         const updatedQuestionRating = question.questionRating.map(rate => {if(rate.id === didUserVoted.id){
@@ -120,7 +119,6 @@ const Question = () => {
                             data: updatedQuestionRating
                         })
                     }
-
                 }
             } else {
                 /* QUESTION ARRAY IS EMPTY */
@@ -130,25 +128,107 @@ const Question = () => {
                     userVotedDown: false,
                     userVotedUp: true
                 }
-                setQuestion(
-                   {...question,
+                setQuestion({
+                    ...question,
                     questionRating:[newRating]
-                }
-                )
+                })
                 setQuestions({
                     type: questionsActionTypes.addQR,
                     questionId: question.id,
                     data: [newRating]
                 })
-
             }
-
         }
     }
     
     const questionRatingDown = () => {
+        if(currentUser){
+            if(question.questionRating.length > 0){
+                let didUserVoted = question.questionRating.find(rate => currentUser.id === rate.userId)
+                if(!didUserVoted){
+                    /* USER DIDN'T VOTE */
+                    const newRating = {
+                        id: generateId(),
+                        userId: currentUser.id,
+                        userVotedDown: true,
+                        userVotedUp: false
+                    }
+                    setQuestion({
+                        ...question,
+                        questionRating: [...question.questionRating, newRating]
+                    })
+                    setQuestions({
+                        type: questionsActionTypes.addQR,
+                        questionId: question.id,
+                        data: [...question.questionRating, newRating]
+                    })
+                } else {
+                    /* USER ALREADY VOTED DOWN*/
+                    if(didUserVoted.userVotedDown === true){
+                        const updatedQuestionRating = question.questionRating.map(rate => {
+                            if(rate.id === didUserVoted.id){
+                                return {
+                                    ...rate,
+                                    userVotedDown: false
+                                }
+                            } else {
+                                return rate
+                            }
+                        })
+                        setQuestion({
+                            ...question,
+                            questionRating: updatedQuestionRating
+                        })
+                        setQuestions({
+                            type:questionsActionTypes.addQR,
+                            questionId: question.id,
+                            data: updatedQuestionRating
+                        })
+                    } else {
+                        /* USER ALREADY VOTED NOT DOWN */
+                        const updatedQuestionRating = question.questionRating.map(rate =>{
+                            if(rate.id === didUserVoted.id){
+                                return{
+                                    ...rate,
+                                    userVotedUp:false,
+                                    userVotedDown: true
+                                }
+                            } else {
+                                return rate
+                            }
+                        })
+                        setQuestion({
+                            ...question,
+                            questionRating: updatedQuestionRating
+                        })
+                        setQuestions({
+                            type: questionsActionTypes.addQR,
+                            questionId: question.id,
+                            data: updatedQuestionRating
+                        })
+                    }
 
+                }
+            } else {
+                const newRating = {
+                    id: generateId(),
+                    userId: currentUser.id,
+                    userVotedDown: true,
+                    userVotedUp: false
+                }
+                setQuestion({
+                    ...question,
+                    questionRating: [newRating]
+                })
+                setQuestions({
+                    type: questionsActionTypes.addQR,
+                    questionId: question.id,
+                    data: [newRating]
+                })
+            }
+        }
     }
+
     
     return ( 
         <StyledMain>
