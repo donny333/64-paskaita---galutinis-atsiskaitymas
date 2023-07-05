@@ -17,7 +17,7 @@ import { v4 as generateId } from 'uuid'
 
 const Question = () => {
 
-    const { currentUser, users, setUsers, UsersActionTypes }  = useContext(UsersContext);
+    const { currentUser }  = useContext(UsersContext);
     const { questionsActionTypes, setQuestions } = useContext(QuestionsContext);
     const { answers } = useContext(AnswersContext)
     const { id } = useParams();
@@ -55,9 +55,33 @@ const Question = () => {
     
     const questionRatingUp = () => {
         if(currentUser){
-            let usersRating = question.questionRating.find(rating => currentUser.id === rating.userId)
-            console.log(usersRating)
-            
+            if(question.questionRating.length > 0){
+                let didUserVoted = question.questionRating.find(rate => currentUser.id === rate.userId)
+                if(!didUserVoted){
+                    console.log("User didn't voted")
+                } else {
+                    console.log("User voted")
+                }
+            } else {
+                const newRating = {
+                    id:generateId(),
+                    userId: currentUser.id,
+                    userVotedDown: false,
+                    userVotedUp: true
+                }
+                setQuestion(
+                   {...question,
+                    questionRating:[newRating]
+                }
+                )
+                setQuestions({
+                    type: questionsActionTypes.addQR,
+                    questionId: question.id,
+                    data: [newRating]
+                })
+
+            }
+
         }
     }
     

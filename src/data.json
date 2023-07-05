@@ -100,14 +100,10 @@
       "description": "Dive into the latest advancements in technology, from AI to space exploration, and discuss their impact on society and our future.",
       "questionRating": [
         {
-          "id": "7abde3b8-1120-4d8e-8190-7a58fed4509f",
+          "id": "ec4df836-5b30-4e50-bba3-95df8444209d",
           "userId": 3,
-          "vote": 1
-        },
-        {
-          "id": "302d7532-c82a-4dc1-a675-87ed36ee1b9f",
-          "userId": 4,
-          "vote": 0
+          "userVotedDown": false,
+          "userVotedUp": true
         }
       ],
       "text": "How is technology revolutionizing various industries, shaping our lives, and what ethical considerations should be taken into account to ensure responsible development and use of emerging technologies? Join our forum to share insights, discuss the pros and cons, and explore the potential of cutting-edge technologies such as artificial intelligence, blockchain, robotics, and virtual reality. From healthcare to transportation, education to entertainment, how do these innovations redefine our possibilities while addressing concerns about privacy, job displacement, and inequality? Let's engage in thought-provoking conversations and envision a tech-driven future that benefits all of humanity.",
@@ -183,6 +179,7 @@
       "text": "What are the key scientific discoveries and advancements across various disciplines, and how do they contribute to our understanding of the natural world, technological progress, and societal development? Join us in this forum to delve into the fascinating realms of physics, chemistry, biology, astronomy, and more. Discuss the latest breakthroughs, from quantum computing to genetic engineering, and explore their potential applications in fields such as healthcare, energy, and environmental conservation. How do these scientific endeavors drive innovation, address global challenges, and shape the future of humanity? Let's engage in stimulating conversations, exchange knowledge, and appreciate the awe-inspiring wonders of scientific exploration. Together, we can unravel the intricacies of our world and foster a deeper appreciation for the beauty of science.",
       "tag": "science",
       "userId": 2,
+      "questionRating": [],
       "id": "013eef17-34ed-4241-b6a8-ea551ab2840a"
     }
   ],
@@ -251,14 +248,6 @@
       "userId": 3,
       "questionID": 100,
       "id": "3ce6d8a0-087b-4c91-bd74-bcf8aaed89bf"
-    }
-  ],
-  "questionsRatings": [
-    {
-      "id": 1000,
-      "questionId": 30,
-      "userid": 3,
-      "rating": 0
     }
   ]
 }
