@@ -74,7 +74,7 @@
         {
           "id": 1001,
           "userId": 4,
-          "userVotedUp": true,
+          "userVotedUp": false,
           "userVotedDown": false
         },
         {
@@ -104,6 +104,12 @@
           "userId": 3,
           "userVotedDown": false,
           "userVotedUp": true
+        },
+        {
+          "id": "7e9b4af7-52e2-4fab-8d52-d4c348c95fc9",
+          "userId": 4,
+          "userVotedDown": false,
+          "userVotedUp": false
         }
       ],
       "text": "How is technology revolutionizing various industries, shaping our lives, and what ethical considerations should be taken into account to ensure responsible development and use of emerging technologies? Join our forum to share insights, discuss the pros and cons, and explore the potential of cutting-edge technologies such as artificial intelligence, blockchain, robotics, and virtual reality. From healthcare to transportation, education to entertainment, how do these innovations redefine our possibilities while addressing concerns about privacy, job displacement, and inequality? Let's engage in thought-provoking conversations and envision a tech-driven future that benefits all of humanity.",
